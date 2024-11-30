@@ -1,0 +1,12 @@
+#!name= YouTube
+#!desc= 去广告
+#!icon= https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png
+
+[Rewrite]
+^https?:\/\/[\w-]+\.googlevideo\.com\/(?!(dclk_video_ads|videoplayback\?)).+&oad reject-dict
+
+[Script]
+http-response ^https?:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch) script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/youtube.js, requires-body=true, timeout=60, tag=YouTube修改
+
+[MITM]
+hostname = *.googlevideo.com,youtubei.googleapis.com
