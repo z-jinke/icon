@@ -1,18 +1,13 @@
 #!name= 酷安
-#!desc= 去广告
+#!desc= 精简+去广告
 #!icon= https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/CoolApk.png
 
 [Script]
 http-response ^https?:\/\/api\.coolapk\.com\/v6\/main\/init script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/coolapk.js, requires-body=true, timeout=60, tag=酷安:开屏广告和过滤Tab
-
 http-response ^https?:\/\/api\.coolapk\.com\/v6\/main\/indexV8 script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/coolapk.js, requires-body=true, timeout=60, tag=酷安:首页精简
-
 http-response ^https?:\/\/api\.coolapk\.com\/v6\/search script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/coolapk.js, requires-body=true, timeout=60, tag=酷安:搜索栏精简
-
 http-response ^https?:\/\/api\.coolapk\.com\/v6\/page script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/coolapk.js, requires-body=true, timeout=60, tag=酷安:评论区去广告
-
 http-response ^https?:\/\/api\.coolapk\.com\/v6\/feed script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/coolapk.js, requires-body=true, timeout=60, tag=酷安:信息流去广告
-
 http-response ^https?:\/\/api\.coolapk\.com\/v6\/account\/loadConfig script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/coolapk.js, requires-body=true, timeout=60, tag=酷安:账户页面精简
 
 [MITM]
