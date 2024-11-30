@@ -1,0 +1,12 @@
+#!name= Spotify音乐
+#!desc= Premium解锁
+#!icon= https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Spotify.png
+
+[Rewrite]
+^https?:\/\/spclient\.wg\.spotify\.com\/(ad-logic\/prefetch|ads\/v3\/ads) - reject-200
+
+[Script]
+http-response ^https?:\/\/spclient\.wg\.spotify\.com\/(user-customization-service\/v1\/customize|bootstrap\/v1\/bootstrap) script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Scripts/spotify.js, requires-body=true, binary-body-mode=true, timeout=60, tag=Spotify响应
+
+[MITM]
+hostname = spclient.wg.spotify.com
