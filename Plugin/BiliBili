@@ -2,6 +2,9 @@
 #!desc= 精简+去广告
 #!icon= https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/bilibili_3.png
 
+[Rule]
+AND,((DOMAIN,data.bilibili.com),(DOMAIN,cm.bilibili.com)),REJECT
+
 [Rewrite]
 ^https?:\/\/(api|app)\.bilibili\.com\/(pgc\/(activity\/deliver|season\/player)|x\/(resource\/ip|v2\/splash\/show|vip\/ads)) - reject-200
 
