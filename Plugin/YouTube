@@ -6,7 +6,7 @@
 captionLang = select, "zh-Hans", "zh-Hant", tag = 字幕语言, desc = 选择翻译语言
 
 [Rewrite]
-^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback.+&oad mock-response-body data-type=text status-code=502
+^https?:\/\/[\w-]+\.googlevideo\.com\/(?!(dclk_video_ads|videoplayback\?)).+&amp;oad - reject-200
 
 [Script]
 http-response ^https?:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch) script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/youtube.js, requires-body=true, binary-body-mode=true, timeout=60, tag=YouTube响应修改,argument=[{captionLang}]
