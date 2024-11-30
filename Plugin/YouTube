@@ -1,6 +1,6 @@
 #!name= YouTube
 #!desc= 去广告
-#!icon= https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png
+#!icon= https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/YouTube.png
 
 [Rewrite]
 ^https?:\/\/[\w-]+\.googlevideo\.com\/(?!(dclk_video_ads|videoplayback\?)).+&oad - reject-200
