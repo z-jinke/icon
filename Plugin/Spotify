@@ -1,6 +1,6 @@
 #!name= Spotify音乐
 #!desc= Premium解锁
-#!icon= https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Spotify.png
+#!icon= https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/Spotify.png
 
 [Rewrite]
 ^https?:\/\/spclient\.wg\.spotify\.com\/(ad-logic\/prefetch|ads\/v3\/ads) - reject-200
