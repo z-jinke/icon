@@ -2,7 +2,7 @@ let url = $request.url;
 let body = $response.body;
 
 try {
-    // 分支1：处理开屏广告
+    // 分支1处理开屏广告
     if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/splash\/list/.test(url)) {
         let obj = JSON.parse(body);
         if (obj.data && obj.data.list) {
@@ -16,11 +16,11 @@ try {
         return;
     }
 } catch (error) {
-    $notification.post("分支1 错误", url, error.message);
+    console.log("分支1错误：" + error.message);
 }
 
 try {
-    // 分支2：处理主界面 Tab
+    // 分支2处理主界面Tab修改
     if (/^https?:\/\/app\.bilibili\.com\/x\/resource\/show\/tab/.test(url)) {
         let obj = JSON.parse(body);
         if (obj.data) {
@@ -43,11 +43,11 @@ try {
         return;
     }
 } catch (error) {
-    $notification.post("分支2 错误", url, error.message);
+    console.log("分支2错误：" + error.message);
 }
 
 try {
-    // 分支3：过滤首页 Feed 流广告
+    // 分支3处理首页Feed流广告
     if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/feed/.test(url)) {
         let obj = JSON.parse(body);
         if (obj.data && obj.data.items) {
@@ -61,11 +61,11 @@ try {
         return;
     }
 } catch (error) {
-    $notification.post("分支3 错误", url, error.message);
+    console.log("分支3错误：" + error.message);
 }
 
 try {
-    // 分支4：过滤番剧与影视页面横幅
+    // 分支4处理番剧与影视页面
     if (/^https?:\/\/api\.bilibili\.com\/pgc\/page\/(cinema|bangumi)/.test(url)) {
         let obj = JSON.parse(body);
         if (obj.result && obj.result.modules) {
@@ -76,11 +76,11 @@ try {
         return;
     }
 } catch (error) {
-    $notification.post("分支4 错误", url, error.message);
+    console.log("分支4错误：" + error.message);
 }
 
 try {
-    // 分支5：过滤直播页横幅
+    // 分支5处理直播页面
     if (/^https?:\/\/api\.live\.bilibili\.com\/xlive\/app-interface\/v2\/index\/feed/.test(url)) {
         let obj = JSON.parse(body);
         if (obj.data && obj.data.card_list) {
@@ -90,11 +90,11 @@ try {
         return;
     }
 } catch (error) {
-    $notification.post("分支5 错误", url, error.message);
+    console.log("分支5错误：" + error.message);
 }
 
 try {
-    // 分支6：处理 iPad 我的页面
+    // 分支6处理iPad我的页面
     if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/mine\/ipad/.test(url)) {
         let obj = JSON.parse(body);
         if (obj.data) {
@@ -110,11 +110,11 @@ try {
         return;
     }
 } catch (error) {
-    $notification.post("分支6 错误", url, error.message);
+    console.log("分支6错误：" + error.message);
 }
 
 try {
-    // 分支7：处理 iPhone 我的页面
+    // 分支7处理iPhone我的页面
     if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/mine(?!\/ipad)/.test(url)) {
         let obj = JSON.parse(body);
         if (obj.data) {
@@ -129,7 +129,7 @@ try {
         return;
     }
 } catch (error) {
-    $notification.post("分支7 错误", url, error.message);
+    console.log("分支7错误：" + error.message);
 }
 
 // 默认结束
