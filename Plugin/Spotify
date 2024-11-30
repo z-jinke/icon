@@ -2,17 +2,11 @@
 #!desc= Premium解锁
 #!icon= https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/Spotify.png
 
-[Argument]
-mode = select,"直连","代理",tag=网络模式选择,desc=选择 audio-ak.spotifycdn.com 的网络模式
-
-[rule]
-{if mode == "直连"}DOMAIN,audio-ak.spotifycdn.com,DIRECT{else}DOMAIN,audio-ak.spotifycdn.com,PROXY{endif}
-
 [Rewrite
 ^https?:\/\/spclient\.wg\.spotify\.com\/(ad-logic\/prefetch|ads\/v3\/ads) - reject-200
 
 [Script]
-http-response ^https?:\/\/spclient\.wg\.spotify\.com\/(user-customization-service\/v1\/customize|bootstrap\/v1\/bootstrap) script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/spotify.js, requires-body=true, binary-body-mode=true, timeout=60, tag=Spotify响应
+http-response ^https?:\/\/spclient\.wg\.spotify\.com\/(user-customization-service\/v1\/customize|bootstrap\/v1\/bootstrap) script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/spotify.js, requires-body=true, binary-body-mode=true, timeout=60, tag=Premium解锁
 
 [MITM]
 hostname = spclient.wg.spotify.com
