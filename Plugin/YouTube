@@ -3,7 +3,7 @@
 #!icon= https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/YouTube.png
 
 [Rule]
-AND,((DOMAIN-KEYWORD,google),(PROTOCOL,QUIC)),REJECT
+AND,((DOMAIN-KEYWORD,google),(PROTOCOL,QUIC)),REJECT-DICT
 
 [Rewrite]
 ^https?:\/\/[\w-]+\.googlevideo\.com\/(?!(dclk_video_ads|videoplayback\?)).+&oad - reject-200
