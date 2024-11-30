@@ -1,0 +1,11 @@
+#DOMAIN
+#DOMAIN-SUFFIX
+#DOMAIN-KEYWORD
+#IP-CIDR
+#IP-ASN
+
+DOMAIN,dpxcf.niceduck.lol
+DOMAIN,cf.niceduck.lol
+DOMAIN,vi.niceduck.lol
+DOMAIN-SUFFIX,emby.moe
+DOMAIN-SUFFIX,niceduck.lol
