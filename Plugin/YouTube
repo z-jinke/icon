@@ -2,6 +2,9 @@
 #!desc= 精简+去广告
 #!icon= https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/YouTube.png
 
+[Argument]
+captionLang = select, "zh-Hans", "zh-Hant", "ja", "ko", "en", "off", tag = 字幕语言, desc = 选择语言
+
 [Rule]
 AND,((DOMAIN-SUFFIX,googleapis.com),(PROTOCOL,QUIC)),REJECT
 AND,((DOMAIN-SUFFIX,googlevideo.com),(PROTOCOL,QUIC)),REJECT
@@ -10,7 +13,7 @@ AND,((DOMAIN-SUFFIX,googlevideo.com),(PROTOCOL,QUIC)),REJECT
 ^https?:\/\/[\w-]+\.googlevideo\.com\/.*(?:oad|ovd|oaad|oavd|oputc|oses)=\d+ - reject-video
 
 [Script]
-http-response ^https?:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch) script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/youtube.js, requires-body=true, binary-body-mode=true, timeout=60, tag=响应修改
+http-response ^https?:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch) script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/youtube.js, requires-body=true, binary-body-mode=true, timeout=60, tag=响应修改,argument=[{captionLang}]
 
 [MITM]
 hostname = *.googlevideo.com,youtubei.googleapis.com
