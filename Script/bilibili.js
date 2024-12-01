@@ -1,8 +1,8 @@
 let url = $request.url;
 let body = $response.body;
 
+// 分支1：处理开屏广告
 try {
-    // 分支1处理开屏广告
     if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/splash\/list/.test(url)) {
         let obj = JSON.parse(body);
         if (obj.data && obj.data.list) {
@@ -19,8 +19,8 @@ try {
     console.log("分支1错误：" + error.message);
 }
 
+// 分支2：修改主界面Tab栏
 try {
-    // 分支2处理主界面Tab修改
     if (/^https?:\/\/app\.bilibili\.com\/x\/resource\/show\/tab/.test(url)) {
         let obj = JSON.parse(body);
         if (obj.data) {
@@ -46,35 +46,12 @@ try {
     console.log("分支2错误：" + error.message);
 }
 
+// 分支3：去除首页Feed流广告
 try {
-    // 分支3处理首页Feed流广告
     if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/feed/.test(url)) {
         let obj = JSON.parse(body);
         if (obj.data && obj.data.items) {
-            let newItems = [];
-            for (let item of obj.data.items) {
-                if (item?.goto === "av") {
-                    // 常规模式
-                    if (item?.card_goto === "av") {
-                        newItems.push(item);
-                    }
-                } else if (item?.goto === "vertical_av") {
-                    // 竖屏模式
-                    if (item?.card_goto === "av" || item?.card_goto === "vertical_av") {
-                        if (item?.creative_entrance) {
-                            item.creative_entrance = {}; 
-                        }
-                        if (item?.scroll_guide) {
-                            item.scroll_guide = {}; 
-                        }
-                        if (item?.story_cart_icon) {
-                            item.story_cart_icon = {};
-                        }
-                        newItems.push(item);
-                    }
-                }
-            }
-            obj.data.items = newItems;
+            obj.data.items = obj.data.items.filter(item => item?.goto === "av" && item?.card_goto === "av");
         }
         $done({ body: JSON.stringify(obj) });
         return;
@@ -83,8 +60,8 @@ try {
     console.log("分支3错误：" + error.message);
 }
 
+// 分支4：修改番剧与影视页面
 try {
-    // 分支4处理番剧与影视页面
     if (/^https?:\/\/api\.bilibili\.com\/pgc\/page\/(cinema|bangumi)/.test(url)) {
         let obj = JSON.parse(body);
         if (obj.result && obj.result.modules) {
@@ -98,8 +75,8 @@ try {
     console.log("分支4错误：" + error.message);
 }
 
+// 分支5：修改直播页面
 try {
-    // 分支5处理直播页面
     if (/^https?:\/\/api\.live\.bilibili\.com\/xlive\/app-interface\/v2\/index\/feed/.test(url)) {
         let obj = JSON.parse(body);
         if (obj.data && obj.data.card_list) {
@@ -112,43 +89,37 @@ try {
     console.log("分支5错误：" + error.message);
 }
 
+// 判断：URL 是否匹配我的页面
 try {
-    // 分支6处理iPad我的页面
-    if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/mine\/ipad/.test(url)) {
+    if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/mine/.test(url)) {
         let obj = JSON.parse(body);
         if (obj.data) {
-            if (obj.data['ipad_more_sections']) {
-                obj.data['ipad_more_sections'] = obj.data['ipad_more_sections'].filter(section =>
-                    section.title !== "青少年守护"
-                );
-            }
-            delete obj.data['ipad_recommend_sections'];
-            delete obj.data['ipad_upper_sections'];
-        }
-        $done({ body: JSON.stringify(obj) });
-        return;
-    }
-} catch (error) {
-    console.log("分支6错误：" + error.message);
-}
+            // 如果是 iPad 页面
+            if (url.includes("/ipad")) {
+                if (obj.data['ipad_more_sections']) {
+                    obj.data['ipad_more_sections'] = obj.data['ipad_more_sections'].filter(section =>
+                        section.title !== "青少年守护"
+                    );
+                }
+                delete obj.data['ipad_recommend_sections'];
+                delete obj.data['ipad_upper_sections'];
+            } 
+            // 如果是 iPhone 页面
+            else {
+                const excludedSectionTitles = new Set(['推荐服务', '创作中心', '其他服务']);
+                obj.data.sections_v2 = obj.data.sections_v2.filter(section => !excludedSectionTitles.has(section.title));
 
-try {
-    // 分支7处理iPhone我的页面
-    if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/mine(?!\/ipad)/.test(url)) {
-        let obj = JSON.parse(body);
-        if (obj.data) {
-            const excludedSectionTitles = new Set(['推荐服务', '创作中心', '其他服务']);
-            obj.data.sections_v2 = obj.data.sections_v2.filter(section => !excludedSectionTitles.has(section.title));
-            const excludedItemIDs = new Set([171, 172, 173, 174, 429, 430, 431, 432, 950]);
-            obj.data.sections_v2.forEach(section => {
-                section.items = section.items.filter(item => !excludedItemIDs.has(item.id));
-            });
+                const excludedItemIDs = new Set([171, 172, 173, 174, 429, 430, 431, 432, 950]);
+                obj.data.sections_v2.forEach(section => {
+                    section.items = section.items.filter(item => !excludedItemIDs.has(item.id));
+                });
+            }
         }
         $done({ body: JSON.stringify(obj) });
         return;
     }
 } catch (error) {
-    console.log("分支7错误：" + error.message);
+    console.log("处理错误：" + error.message);
 }
 
 // 默认结束
