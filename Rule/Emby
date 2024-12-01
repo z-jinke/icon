@@ -2,7 +2,6 @@
 #DOMAIN-SUFFIX
 #DOMAIN-KEYWORD
 #IP-CIDR
-#IP-ASN
 
 DOMAIN,dpxcf.niceduck.lol
 DOMAIN,cf.niceduck.lol
