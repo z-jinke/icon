@@ -51,11 +51,30 @@ try {
     if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/feed/.test(url)) {
         let obj = JSON.parse(body);
         if (obj.data && obj.data.items) {
-            obj.data.items = obj.data.items.filter(item =>
-                !item.banner_item &&
-                !item.ad_info &&
-                !item.ad
-            );
+            let newItems = [];
+            for (let item of obj.data.items) {
+                if (item?.goto === "av") {
+                    // 常规模式
+                    if (item?.card_goto === "av") {
+                        newItems.push(item);
+                    }
+                } else if (item?.goto === "vertical_av") {
+                    // 竖屏模式
+                    if (item?.card_goto === "av" || item?.card_goto === "vertical_av") {
+                        if (item?.creative_entrance) {
+                            item.creative_entrance = {}; 
+                        }
+                        if (item?.scroll_guide) {
+                            item.scroll_guide = {}; 
+                        }
+                        if (item?.story_cart_icon) {
+                            item.story_cart_icon = {};
+                        }
+                        newItems.push(item);
+                    }
+                }
+            }
+            obj.data.items = newItems;
         }
         $done({ body: JSON.stringify(obj) });
         return;
