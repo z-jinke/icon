@@ -3,7 +3,7 @@
 #!icon= https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/YouTube.png
 
 [Rule]
-AND,((DOMAIN-SUFFIX,googlevideo.com),(PROTOCOL,QUIC)),REJECT-DICT
+AND,((DOMAIN-SUFFIX,googlevideo.com),(PROTOCOL,UDP)),REJECT-DROP
 
 [Rewrite]
 ^https?:\/\/[\w-]+\.googlevideo\.com\/(?!(dclk_video_ads|videoplayback\?)).+&oad - reject-dict
