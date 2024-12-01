@@ -2,21 +2,17 @@
 #!desc= 精简+去广告
 #!icon= https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/bilibili_3.png
 
-[Rule]
-URL-REGEX,"^http:\/\/[\d\.]+:8000\/v1\/resource\/\w{32}-1-SPLASH",REJECT-DICT
-URL-REGEX,"^http:\/\/upos-sz-static\.bilivideo\.com\/ssaxcode\/\w{2}\/\w{2}\/\w{32}-1-SPLASH",REJECT-DICT
-
 [Rewrite]
 ^https?:\/\/(api|app)\.bilibili\.com\/(pgc\/(activity\/deliver|season\/player)|x\/(resource\/ip|v2\/splash\/show|vip\/ads)) - reject-dict
 ^https:\/\/api\.live\.bilibili\.com\/xlive\/e-commerce-interface\/v1\/ecommerce-user\/get_shopping_info\? reject-dict
 
 [Script]
-http-response ^https?:\/\/app\.bilibili\.com\/x\/v2\/splash\/list script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/bilibili.js, requires-body=true, timeout=60, tag=bilibili:处理开屏广告
-http-response ^https?:\/\/app\.bilibili\.com\/x\/v2\/feed script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/bilibili.js, requires-body=true, timeout=60, tag=bilibili:处理首页Feed流广告
-http-response ^https?:\/\/app\.bilibili\.com\/x\/resource\/show\/tab script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/bilibili.js, requires-body=true, timeout=60, tag=bilibili:处理主界面Tab
-http-response ^https?:\/\/api\.bilibili\.com\/pgc\/page\/(cinema|bangumi) script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/bilibili.js, requires-body=true, timeout=60, tag=bilibili:处理番剧与影视页面
-http-response ^https?:\/\/api\.live\.bilibili\.com\/xlive\/app-interface\/v2\/index script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/bilibili.js, requires-body=true, timeout=60, tag=bilibili:处理直播页面
-http-response ^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/(mine|ipad) script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/bilibili.js, requires-body=true, timeout=60, tag=bilibili:处理我的页面
+http-response ^https?:\/\/app\.bilibili\.com\/x\/v2\/splash\/list script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/bilibili.js, requires-body=true, timeout=60, tag=处理开屏广告
+http-response ^https?:\/\/app\.bilibili\.com\/x\/v2\/feed script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/bilibili.js, requires-body=true, timeout=60, tag处理首页Feed广告
+http-response ^https?:\/\/app\.bilibili\.com\/x\/resource\/show\/tab script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/bilibili.js, requires-body=true, timeout=60, tag=处理主界面Tab
+http-response ^https?:\/\/api\.bilibili\.com\/pgc\/page\/(cinema|bangumi) script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/bilibili.js, requires-body=true, timeout=60, tag=处理番剧与影视页面
+http-response ^https?:\/\/api\.live\.bilibili\.com\/xlive\/app-interface\/v2\/index script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/bilibili.js, requires-body=true, timeout=60, tag=处理直播页面
+http-response ^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/(mine|ipad) script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/bilibili.js, requires-body=true, timeout=60, tag=处理我的页面
 
 [MITM]
-hostname = *.bilibili.com
+hostname = app.bilibili.com,api.bilibili.com,api.live.bilibili.com
