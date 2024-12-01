@@ -1,7 +1,6 @@
 let url = $request.url;
 let body = $response.body;
 
-// 分支1：处理开屏广告
 try {
     if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/splash\/list/.test(url)) {
         let obj = JSON.parse(body);
@@ -19,7 +18,6 @@ try {
     console.log("分支1错误：" + error.message);
 }
 
-// 分支2：修改主界面Tab栏
 try {
     if (/^https?:\/\/app\.bilibili\.com\/x\/resource\/show\/tab/.test(url)) {
         let obj = JSON.parse(body);
@@ -46,7 +44,6 @@ try {
     console.log("分支2错误：" + error.message);
 }
 
-// 分支3：去除首页Feed流广告
 try {
     if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/feed/.test(url)) {
         let obj = JSON.parse(body);
@@ -60,7 +57,6 @@ try {
     console.log("分支3错误：" + error.message);
 }
 
-// 分支4：修改番剧与影视页面
 try {
     if (/^https?:\/\/api\.bilibili\.com\/pgc\/page\/(cinema|bangumi)/.test(url)) {
         let obj = JSON.parse(body);
@@ -75,7 +71,6 @@ try {
     console.log("分支4错误：" + error.message);
 }
 
-// 分支5：修改直播页面
 try {
     if (/^https?:\/\/api\.live\.bilibili\.com\/xlive\/app-interface\/v2\/index\/feed/.test(url)) {
         let obj = JSON.parse(body);
@@ -89,7 +84,6 @@ try {
     console.log("分支5错误：" + error.message);
 }
 
-// 判断：URL 是否匹配我的页面
 try {
     if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/mine/.test(url)) {
         let obj = JSON.parse(body);
