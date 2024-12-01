@@ -4,7 +4,7 @@
 
 [Rule]
 AND,((DOMAIN-SUFFIX,googleapis.com),(PROTOCOL,QUIC)),REJECT
-AND,((DOMAIN-SUFFIX,googlevideo.com),(PROTOCOL,QUIC)),REJECT-VIDEO
+AND,((DOMAIN-SUFFIX,googlevideo.com),(PROTOCOL,QUIC)),REJECT
 
 [Rewrite]
 ^https?:\/\/[\w-]+\.googlevideo\.com\/.*(?:oad|ovd|oaad|oavd|oputc|oses)=\d+ - reject-video
