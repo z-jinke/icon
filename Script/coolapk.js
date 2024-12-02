@@ -12,8 +12,7 @@ try {
                 }
                 if (item.entities && Array.isArray(item.entities)) {
                     const allowedEntityIds = new Set([420, 1635, 415, 2261, 1190, 1175]);
-                    item.entities = item.entities.filter(entity =>
-                        allowedEntityIds.has(entity.entityId)
+                    item.entities = item.entities.filter(entity => allowedEntityIds.has(entity.entityId)
                     );
                 }
             });
