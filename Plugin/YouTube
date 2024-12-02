@@ -1,5 +1,5 @@
 #!name= YouTube
-#!desc= 精简+去广告
+#!desc= 净化+去广告
 #!icon= https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/YouTube.png
 
 [Rule]
@@ -9,7 +9,7 @@ AND,((DOMAIN-KEYWORD,google),(PROTOCOL,QUIC)),REJECT-DROP
 ^https?:\/\/[\w-]+\.googlevideo\.com\/.*(?:oad|ovd|oaad|oavd|oputc|oses)=\d+ - reject-video
 
 [Script]
-http-response ^https?:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch) script-path=https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/dist/youtube.response.preview.js, requires-body=true, binary-body-mode=true, timeout=60, tag=修改去广告
+http-response ^https?:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch) script-path=https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/dist/youtube.response.preview.js, requires-body=true, binary-body-mode=true, timeout=60, tag=修改响应内容
 
 [MITM]
 hostname = *.googlevideo.com,youtubei.googleapis.com
