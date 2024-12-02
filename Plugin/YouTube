@@ -3,8 +3,7 @@
 #!icon= https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/YouTube.png
 
 [Rule]
-AND,((DOMAIN-SUFFIX,googleapis.com),(PROTOCOL,QUIC)),REJECT
-AND,((DOMAIN-SUFFIX,googlevideo.com),(PROTOCOL,QUIC)),REJECT
+AND,((DOMAIN-KEYWORD,google),(PROTOCOL,QUIC)),REJECT-DROP
 
 [Rewrite]
 ^https?:\/\/[\w-]+\.googlevideo\.com\/.*(?:oad|ovd|oaad|oavd|oputc|oses)=\d+ - reject-video
