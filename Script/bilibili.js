@@ -47,11 +47,17 @@ try {
 try {
     if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/feed/.test(url)) {
         let obj = JSON.parse(body);
-        if (obj?.data?.items?.length > 0) {
-            obj.data.items = obj.data.items.filter(({ goto, card_goto }) => goto === "av" && card_goto === "av"
-        );
-    }
-    $done({ body: JSON.stringify(obj) });
+        if (obj.data?.items) {
+            let items = obj.data.items;
+            let filteredItems = [];
+            for (let i = 0; i < items.length; i++) {
+                let item = items[i];
+                if (item?.goto === "av" && item?.card_goto === "av") { filteredItems.push(item); 
+                }
+            }
+            obj.data.items = filteredItems;
+        }
+        $done({ body: JSON.stringify(obj) });
         return;
     }
 } catch (error) {
