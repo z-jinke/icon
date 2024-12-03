@@ -3,8 +3,8 @@
 #!icon= https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/Bilibili.png
 
 [Rewrite]
-^https?:\/\/(api|app)\.bilibili\.com\/(pgc\/(activity\/deliver|season\/player)|x\/(resource\/ip|v2\/splash\/show|vip\/ads)) - reject-dict
-^https?:\/\/api\.live\.bilibili\.com\/xlive\/e-commerce-interface\/v1\/ecommerce-user\/get_shopping_info\? - reject-dict
+^https?:\/\/(api|app)\.bilibili\.com\/(pgc\/(activity\/deliver|season\/player)|x\/(resource\/ip|v2\/splash\/show|vip\/ads)) reject-200
+^https?:\/\/api\.live\.bilibili\.com\/xlive\/e-commerce-interface\/v1\/ecommerce-user\/get_shopping_info\? reject-200
 
 [Script]
 http-response ^https?:\/\/app\.bilibili\.com\/x\/v2\/splash\/list script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/bilibili.js, requires-body=true, timeout=60, tag=开屏广告
