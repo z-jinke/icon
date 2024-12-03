@@ -2,9 +2,6 @@
 #!desc= 净化+去广告
 #!icon= https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/YouTube.png
 
-[Rule]
-AND,((DOMAIN-SUFFIX,googlevideo.com),(PROTOCOL,UDP)),REJECT-VIDEO
-
 [Rewrite]
 ^https?:\/\/[\w-]+\.googlevideo\.com\/.*(?:oad|ovd|oaad|oavd|oputc|oses)=\d+ - reject-video
 
