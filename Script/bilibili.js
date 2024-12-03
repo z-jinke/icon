@@ -5,17 +5,18 @@ try {
     if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/splash\/list/.test(url)) {
         let obj = JSON.parse(body);
         if (obj.data && obj.data.list) {
-            obj.data.list.forEach(item => {
+            for (let i = 0; i < obj.data.list.length; i++) {
+                let item = obj.data.list[i];
                 item.duration = 0;
                 item.begin_time = 9999999999;
                 item.end_time = 9999999999;
-            });
+            }
         }
         $done({ body: JSON.stringify(obj) });
         return;
     }
 } catch (error) {
-    console.log("分支1错误：" + error.message);
+    console.log("错误：" + error.message);
 }
 
 try {
@@ -34,14 +35,20 @@ try {
             ];
             const excludedBottomIDs = new Set([103, 105, 107, 108]);
             if (obj.data.bottom) {
-                obj.data.bottom = obj.data.bottom.filter(item => !excludedBottomIDs.has(item.id));
+                let filteredBottom = [];
+                for (let i = 0; i < obj.data.bottom.length; i++) {
+                    if (!excludedBottomIDs.has(obj.data.bottom[i].id)) {
+                        filteredBottom.push(obj.data.bottom[i]);
+                    }
+                }
+                obj.data.bottom = filteredBottom;
             }
         }
         $done({ body: JSON.stringify(obj) });
         return;
     }
 } catch (error) {
-    console.log("分支2错误：" + error.message);
+    console.log("错误：" + error.message);
 }
 
 try {
@@ -52,7 +59,8 @@ try {
             let filteredItems = [];
             for (let i = 0; i < items.length; i++) {
                 let item = items[i];
-                if (item?.goto === "av" && item?.card_goto === "av") { filteredItems.push(item); 
+                if (item?.goto === "av" && item?.card_goto === "av") {
+                    filteredItems.push(item);
                 }
             }
             obj.data.items = filteredItems;
@@ -61,7 +69,7 @@ try {
         return;
     }
 } catch (error) {
-    console.log("分支3错误：" + error.message);
+    console.log("错误：" + error.message);
 }
 
 try {
@@ -69,26 +77,38 @@ try {
         let obj = JSON.parse(body);
         if (obj.result && obj.result.modules) {
             const excludedModuleIDs = new Set([1441, 248, 1455, 1633, 1639]);
-            obj.result.modules = obj.result.modules.filter(module => !excludedModuleIDs.has(module.module_id));
+            let filteredModules = [];
+            for (let i = 0; i < obj.result.modules.length; i++) {
+                if (!excludedModuleIDs.has(obj.result.modules[i].module_id)) {
+                    filteredModules.push(obj.result.modules[i]);
+                }
+            }
+            obj.result.modules = filteredModules;
         }
         $done({ body: JSON.stringify(obj) });
         return;
     }
 } catch (error) {
-    console.log("分支4错误：" + error.message);
+    console.log("错误：" + error.message);
 }
 
 try {
     if (/^https?:\/\/api\.live\.bilibili\.com\/xlive\/app-interface\/v2\/index\/feed/.test(url)) {
         let obj = JSON.parse(body);
         if (obj.data && obj.data.card_list) {
-            obj.data.card_list = obj.data.card_list.filter(card => card.card_type !== "banner_v1");
+            let filteredCards = [];
+            for (let i = 0; i < obj.data.card_list.length; i++) {
+                if (obj.data.card_list[i].card_type !== "banner_v1") {
+                    filteredCards.push(obj.data.card_list[i]);
+                }
+            }
+            obj.data.card_list = filteredCards;
         }
         $done({ body: JSON.stringify(obj) });
         return;
     }
 } catch (error) {
-    console.log("分支5错误：" + error.message);
+    console.log("错误：" + error.message);
 }
 
 try {
@@ -98,29 +118,46 @@ try {
             // 如果是 iPad 页面
             if (url.includes("/ipad")) {
                 if (obj.data['ipad_more_sections']) {
-                    obj.data['ipad_more_sections'] = obj.data['ipad_more_sections'].filter(section =>
-                        section.title !== "青少年守护"
-                    );
+                    let filteredSections = [];
+                    for (let i = 0; i < obj.data['ipad_more_sections'].length; i++) {
+                        if (obj.data['ipad_more_sections'][i].title !== "青少年守护") {
+                            filteredSections.push(obj.data['ipad_more_sections'][i]);
+                        }
+                    }
+                    obj.data['ipad_more_sections'] = filteredSections;
                 }
                 delete obj.data['ipad_recommend_sections'];
                 delete obj.data['ipad_upper_sections'];
-            } 
+            }
             // 如果是 iPhone 页面
             else {
                 const excludedSectionTitles = new Set(['推荐服务', '创作中心', '其他服务']);
-                obj.data.sections_v2 = obj.data.sections_v2.filter(section => !excludedSectionTitles.has(section.title));
+                let filteredSections = [];
+                for (let i = 0; i < obj.data.sections_v2.length; i++) {
+                    if (!excludedSectionTitles.has(obj.data.sections_v2[i].title)) {
+                        filteredSections.push(obj.data.sections_v2[i]);
+                    }
+                }
+                obj.data.sections_v2 = filteredSections;
 
                 const excludedItemIDs = new Set([171, 172, 173, 174, 429, 430, 431, 432, 950]);
-                obj.data.sections_v2.forEach(section => {
-                    section.items = section.items.filter(item => !excludedItemIDs.has(item.id));
-                });
+                for (let i = 0; i < obj.data.sections_v2.length; i++) {
+                    let section = obj.data.sections_v2[i];
+                    let filteredItems = [];
+                    for (let j = 0; j < section.items.length; j++) {
+                        if (!excludedItemIDs.has(section.items[j].id)) {
+                            filteredItems.push(section.items[j]);
+                        }
+                    }
+                    section.items = filteredItems;
+                }
             }
         }
         $done({ body: JSON.stringify(obj) });
         return;
     }
 } catch (error) {
-    console.log("处理错误：" + error.message);
+    console.log("错误：" + error.message);
 }
 
 // 默认结束
