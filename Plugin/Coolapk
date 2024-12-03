@@ -3,12 +3,12 @@
 #!icon= https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/CoolApk.png
 
 [Script]
-http-response ^https?:\/\/api\.coolapk\.com\/v6\/main\/init script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/coolapk.js, requires-body=true, timeout=60, tag=处理开屏和Tab栏
-http-response ^https?:\/\/api\.coolapk\.com\/v6\/main\/indexV8 script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/coolapk.js, requires-body=true, timeout=60, tag=处理首页修改
-http-response ^https?:\/\/api\.coolapk\.com\/v6\/search script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/coolapk.js, requires-body=true, timeout=60, tag=处理搜索栏修改
-http-response ^https?:\/\/api\.coolapk\.com\/v6\/page script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/coolapk.js, requires-body=true, timeout=60, tag=处理评论区广告
-http-response ^https?:\/\/api\.coolapk\.com\/v6\/feed script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/coolapk.js, requires-body=true, timeout=60, tag=处理信息流广告
-http-response ^https?:\/\/api\.coolapk\.com\/v6\/account\/loadConfig script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/coolapk.js, requires-body=true, timeout=60, tag=处理账户页面
+http-response ^https?:\/\/api\.coolapk\.com\/v6\/main\/init script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/coolapk.js, requires-body=true, timeout=60, tag=开屏和Tab栏
+http-response ^https?:\/\/api\.coolapk\.com\/v6\/main\/indexV8 script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/coolapk.js, requires-body=true, timeout=60, tag=首页修改
+http-response ^https?:\/\/api\.coolapk\.com\/v6\/search script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/coolapk.js, requires-body=true, timeout=60, tag=搜索栏修改
+http-response ^https?:\/\/api\.coolapk\.com\/v6\/page script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/coolapk.js, requires-body=true, timeout=60, tag=评论区广告
+http-response ^https?:\/\/api\.coolapk\.com\/v6\/feed script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/coolapk.js, requires-body=true, timeout=60, tag=信息流广告
+http-response ^https?:\/\/api\.coolapk\.com\/v6\/account\/loadConfig script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/coolapk.js, requires-body=true, timeout=60, tag=账户页面
 
 [MITM]
 hostname = api.coolapk.com
