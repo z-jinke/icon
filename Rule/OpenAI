@@ -23,3 +23,4 @@ DOMAIN-SUFFIX,chatgpt.livekit.cloud
 DOMAIN-SUFFIX,chatgpt.livekit.cloud
 DOMAIN-SUFFIX,client-api.arkoselabs.com
 DOMAIN-SUFFIX,openaiapi-site.azureedge.net
+AND,((DOMAIN-SUFFIX,openai.com),(PROTOCOL,QUIC)),REJECT
