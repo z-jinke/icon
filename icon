@@ -2,7 +2,7 @@
 	"name": "Loon图标",
 	"icons": [
 	         {
-		    	 "name": "Loon","url": "https://raw.githubusercontent.com/cc63/ICON/main/icons/Loon.png"
-		       }
-     ]
+		 "name": "Loon","url": "https://raw.githubusercontent.com/cc63/ICON/main/icons/Loon.png"
+		 }
+        ]
 }
