@@ -13,9 +13,11 @@ function processInChunks(data, chunkSize, processFn) {
 if (/^https?:\/\/api\.coolapk\.com\/v6\/page/.test(url)) {
     let obj = JSON.parse(body);
     if (obj.data && obj.data.items) {
-        obj.data.items = processInChunks(obj.data.items, 50, (chunk, processedData) => {
+        const chunkSize = 50;
+        const items = obj.data.items;
+        obj.data.items = processInChunks(items, chunkSize, (chunk, processedData) => {
             const filteredChunk = chunk.filter(item =>
-                ![12315, 8364, 14379, 24309, 35846, 35730, 12889, 20099].some(id => id === item.entityId)
+                ![12315, 8364, 14379, 24309, 35846, 35730, 12889, 20099].includes(item.entityId)
             );
             filteredChunk.forEach(item => delete item.extraDataArr);
             processedData.push(...filteredChunk);
@@ -28,7 +30,9 @@ if (/^https?:\/\/api\.coolapk\.com\/v6\/page/.test(url)) {
 if (/^https?:\/\/api\.coolapk\.com\/v6\/feed/.test(url)) {
     let obj = JSON.parse(body);
     if (obj.data && obj.data.items) {
-        obj.data.items = processInChunks(obj.data.items, 50, (chunk, processedData) => {
+        const chunkSize = 50;
+        const items = obj.data.items;
+        obj.data.items = processInChunks(items, chunkSize, (chunk, processedData) => {
             chunk.forEach(item => {
                 delete item.extraDataArr;
                 delete item.entityTemplate;
@@ -43,7 +47,9 @@ if (/^https?:\/\/api\.coolapk\.com\/v6\/feed/.test(url)) {
 if (/^https?:\/\/api\.coolapk\.com\/v6\/main\/init/.test(url)) {
     let obj = JSON.parse(body);
     if (obj.data) {
-        obj.data = processInChunks(obj.data, 500, (chunk, processedData) => {
+        const chunkSize = 50;
+        const initData = obj.data;
+        obj.data = processInChunks(initData, chunkSize, (chunk, processedData) => {
             chunk.forEach(item => {
                 if (item.extraDataArr) {
                     item.extraDataArr["SplashAd.timeout"] = "0";
@@ -51,7 +57,7 @@ if (/^https?:\/\/api\.coolapk\.com\/v6\/main\/init/.test(url)) {
                 }
                 if (item.entities) {
                     item.entities = item.entities.filter(entity =>
-                        [420, 1635, 415, 2261, 1190, 1175].some(id => id === entity.entityId)
+                        [420, 1635, 415, 2261, 1190, 1175].includes(entity.entityId)
                     );
                 }
             });
@@ -65,9 +71,11 @@ if (/^https?:\/\/api\.coolapk\.com\/v6\/main\/init/.test(url)) {
 if (/^https?:\/\/api\.coolapk\.com\/v6\/search/.test(url)) {
     let obj = JSON.parse(body);
     if (obj.data) {
-        obj.data = processInChunks(obj.data, 500, (chunk, processedData) => {
+        const chunkSize = 100;
+        const searchData = obj.data;
+        obj.data = processInChunks(searchData, chunkSize, (chunk, processedData) => {
             const filteredChunk = chunk.filter(item =>
-                ![20252, 16977].some(id => id === item.entityId)
+                ![20252, 16977].includes(item.entityId)
             );
             processedData.push(...filteredChunk);
         });
@@ -79,9 +87,11 @@ if (/^https?:\/\/api\.coolapk\.com\/v6\/search/.test(url)) {
 if (/^https?:\/\/api\.coolapk\.com\/v6\/account\/loadConfig/.test(url)) {
     let obj = JSON.parse(body);
     if (obj.data) {
-        obj.data = processInChunks(obj.data, 500, (chunk, processedData) => {
+        const chunkSize = 100;
+        const configData = obj.data;
+        obj.data = processInChunks(configData, chunkSize, (chunk, processedData) => {
             const filteredChunk = chunk.filter(item =>
-                ![1002, 1005, 14809, 1004].some(id => id === item.entityId)
+                ![1002, 1005, 14809, 1004].includes(item.entityId)
             );
             processedData.push(...filteredChunk);
         });
@@ -93,7 +103,9 @@ if (/^https?:\/\/api\.coolapk\.com\/v6\/account\/loadConfig/.test(url)) {
 if (/^https?:\/\/api\.coolapk\.com\/v6\/main\/indexV8/.test(url)) {
     let obj = JSON.parse(body);
     if (obj.data) {
-        const filteredData = processInChunks(obj.data, 50, (chunk, processedData) => {
+        const chunkSize = 50;
+        const indexData = obj.data;
+        obj.data = processInChunks(indexData, chunkSize, (chunk, processedData) => {
             chunk.forEach(item => {
                 if (![32557, 13635, 29349].includes(item.entityId)) {
                     delete item.extraDataArr;
@@ -108,7 +120,6 @@ if (/^https?:\/\/api\.coolapk\.com\/v6\/main\/indexV8/.test(url)) {
                 }
             });
         });
-        obj.data = filteredData;
     }
     $done({ body: JSON.stringify(obj) });
     return;
