@@ -1,5 +1,5 @@
 #!name= Spotify
-#!desc= Premium会员解锁，不可设置高音质
+#!desc= Premium权限解锁
 #!icon= https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/Spotify.png
 
 [Rewrite]
