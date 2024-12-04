@@ -29,7 +29,7 @@ if (/^https?:\/\/app\.bilibili\.com\/x\/resource\/show\/tab/.test(url)) {
         obj.data.top = [
             { id: 481, icon: "http://i0.hdslb.com/bfs/archive/d43047538e72c9ed8fd8e4e34415fbe3a4f632cb.png", name: "消息", uri: "bilibili://link/im_home", tab_id: "消息Top", pos: 1 }
         ];
-        obj.data.bottom = obj.data.bottom?.filter(item => ![103, 105, 107, 108].includes(item.id));
+        obj.data.bottom = obj.data.bottom.filter(item => ![103, 105, 107, 108].includes(item.id));
     }
     $done({ body: JSON.stringify(obj) });
     return;
@@ -39,13 +39,13 @@ if (/^https?:\/\/app\.bilibili\.com\/x\/resource\/show\/tab/.test(url)) {
 if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/feed/.test(url)) {
     let obj = JSON.parse(body);
     if (obj.data.items) {
-    const chunkSize = 10000;
+    const chunkSize = 100;
     const items = obj.data.items;
     const filteredItems = [];
         
     for (let i = 0; i < items.length; i += chunkSize) {
         const chunk = items.slice(i, i + chunkSize);
-        filteredItems.push(...chunk.filter(item => item?.goto === "av" && item?.card_goto === "av"));
+        filteredItems.push(...chunk.filter(item => item.goto === "av" && item.card_goto === "av"));
     }
     obj.data.items = filteredItems;
     }
@@ -80,7 +80,7 @@ if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/mine/.test(url)) {
     let obj = JSON.parse(body);
     if (obj.data) {
         if (url.includes("/ipad")) {
-            obj.data['ipad_more_sections'] = obj.data['ipad_more_sections']?.filter(section => section.title !== "青少年守护");
+            obj.data['ipad_more_sections'] = obj.data['ipad_more_sections'].filter(section => section.title !== "青少年守护");
             delete obj.data['ipad_recommend_sections'];
             delete obj.data['ipad_upper_sections'];
         } else {
