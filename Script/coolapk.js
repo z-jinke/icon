@@ -4,7 +4,7 @@ let body = $response.body;
 if (/^https?:\/\/api\.coolapk\.com\/v6\/page/.test(url)) {
     let obj = JSON.parse(body);
     if (obj.data && obj.data.items) {
-        const chunkSize = 10000;
+        const chunkSize = 100;
         const items = obj.data.items;
         const filteredItems = [];
 
@@ -24,7 +24,7 @@ if (/^https?:\/\/api\.coolapk\.com\/v6\/page/.test(url)) {
 if (/^https?:\/\/api\.coolapk\.com\/v6\/feed/.test(url)) {
     let obj = JSON.parse(body);
     if (obj.data && obj.data.items) {
-        const chunkSize = 10000;
+        const chunkSize = 100;
         const items = obj.data.items;
         const filteredItems = [];
 
