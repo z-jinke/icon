@@ -1,14 +1,28 @@
 let url = $request.url;
 let body = $response.body;
 
+function processInChunks(data, chunkSize, processFn) {
+    const processedData = [];
+    for (let i = 0; i < data.length; i += chunkSize) {
+        const chunk = data.slice(i, i + chunkSize);
+        processFn(chunk, processedData);
+    }
+    return processedData;
+}
+
 // 开屏广告
 if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/splash\/list/.test(url)) {
     let obj = JSON.parse(body);
     if (obj.data.list) {
-        obj.data.list.forEach(item => {
-            item.duration = 0;
-            item.begin_time = 9999999999;
-            item.end_time = 9999999999;
+        const chunkSize = 100;
+        const list = obj.data.list;
+        obj.data.list = processInChunks(list, chunkSize, (chunk, processedData) => {
+            chunk.forEach(item => {
+                item.duration = 0;
+                item.begin_time = 9999999999;
+                item.end_time = 9999999999;
+            });
+            processedData.push(...chunk);
         });
     }
     $done({ body: JSON.stringify(obj) });
@@ -39,15 +53,12 @@ if (/^https?:\/\/app\.bilibili\.com\/x\/resource\/show\/tab/.test(url)) {
 if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/feed/.test(url)) {
     let obj = JSON.parse(body);
     if (obj.data.items) {
-    const chunkSize = 100;
-    const items = obj.data.items;
-    const filteredItems = [];
-        
-    for (let i = 0; i < items.length; i += chunkSize) {
-        const chunk = items.slice(i, i + chunkSize);
-        filteredItems.push(...chunk.filter(item => item.goto === "av" && item.card_goto === "av"));
-    }
-    obj.data.items = filteredItems;
+        const chunkSize = 50;
+        const items = obj.data.items;
+        obj.data.items = processInChunks(items, chunkSize, (chunk, processedData) => {
+            const filteredChunk = chunk.filter(item => item.goto === "av" && item.card_goto === "av");
+            processedData.push(...filteredChunk);
+        });
     }
     $done({ body: JSON.stringify(obj) });
     return;
@@ -57,9 +68,16 @@ if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/feed/.test(url)) {
 if (/^https?:\/\/api\.bilibili\.com\/pgc\/page\/(cinema|bangumi)/.test(url)) {
     let obj = JSON.parse(body);
     if (obj.result.modules) {
-        obj.result.modules = obj.result.modules.filter(module => 
-            ![1441, 248, 1455, 1633, 1639].includes(module.module_id)
-        );
+        const chunkSize = 100;
+        const modules = obj.result.modules;
+        obj.result.modules = processInChunks(modules, chunkSize, (chunk, processedData) => {
+            chunk.forEach(module => {
+                // 过滤掉特定 module_id
+                if (![1441, 248, 1455, 1633, 1639].includes(module.module_id)) {
+                    processedData.push(module);
+                }
+            });
+        });
     }
     $done({ body: JSON.stringify(obj) });
     return;
@@ -69,7 +87,15 @@ if (/^https?:\/\/api\.bilibili\.com\/pgc\/page\/(cinema|bangumi)/.test(url)) {
 if (/^https?:\/\/api\.live\.bilibili\.com\/xlive\/app-interface\/v2\/index\/feed/.test(url)) {
     let obj = JSON.parse(body);
     if (obj.data.card_list) {
-        obj.data.card_list = obj.data.card_list.filter(card => card.card_type !== "banner_v1");
+        const chunkSize = 100;
+        const cardList = obj.data.card_list;
+        obj.data.card_list = processInChunks(cardList, chunkSize, (chunk, processedData) => {
+            chunk.forEach(card => {
+                if (card.card_type !== "banner_v1") {
+                    processedData.push(card);
+                }
+            });
+        });
     }
     $done({ body: JSON.stringify(obj) });
     return;
@@ -79,18 +105,25 @@ if (/^https?:\/\/api\.live\.bilibili\.com\/xlive\/app-interface\/v2\/index\/feed
 if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/mine/.test(url)) {
     let obj = JSON.parse(body);
     if (obj.data) {
+        const chunkSize = 50;
         if (url.includes("/ipad")) {
-            obj.data['ipad_more_sections'] = obj.data['ipad_more_sections'].filter(section => section.title !== "青少年守护");
+            obj.data['ipad_more_sections'] = processInChunks(obj.data['ipad_more_sections'], chunkSize, (chunk, processedData) => {
+                chunk.forEach(section => {
+                    if (section.title !== "青少年守护") {
+                        processedData.push(section);
+                    }
+                });
+            });
             delete obj.data['ipad_recommend_sections'];
             delete obj.data['ipad_upper_sections'];
         } else {
-            obj.data.sections_v2 = obj.data.sections_v2.filter(section => 
-                !["推荐服务", "创作中心", "其他服务"].includes(section.title)
-            );
-            obj.data.sections_v2.forEach(section => {
-                section.items = section.items.filter(item => 
-                    ![171, 172, 173, 174, 429, 430, 431, 432, 950].includes(item.id)
-                );
+            obj.data.sections_v2 = processInChunks(obj.data.sections_v2, chunkSize, (chunk, processedData) => {
+                chunk.forEach(section => {
+                    if (!["推荐服务", "创作中心", "其他服务"].includes(section.title)) {
+                        section.items = section.items.filter(item => ![171, 172, 173, 174, 429, 430, 431, 432, 950].includes(item.id));
+                        processedData.push(section);
+                    }
+                });
             });
         }
     }
