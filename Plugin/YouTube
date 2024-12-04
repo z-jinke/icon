@@ -1,6 +1,5 @@
 #!name = Youtube
-#!desc = 净化+去广告
-#!homepage= 需要启用QUIC回退保护
+#!desc = 净化+去广告，需要启用QUIC回退保护
 #!icon = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/App/YouTube.png
 
 [Rewrite]
