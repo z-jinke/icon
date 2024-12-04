@@ -1,5 +1,5 @@
 #!name = Youtube
-#!desc = 使用打开QUIC回退保护
+#!desc = 需要QUIC回退保护打开
 #!icon = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/App/YouTube.png
 
 [Rewrite]
