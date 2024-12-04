@@ -39,7 +39,15 @@ if (/^https?:\/\/app\.bilibili\.com\/x\/resource\/show\/tab/.test(url)) {
 if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/feed/.test(url)) {
     let obj = JSON.parse(body);
     if (obj.data.items) {
-        obj.data.items = obj.data.items.filter(item => item?.goto === "av" && item?.card_goto === "av");
+    const chunkSize = 10000;
+    const items = obj.data.items;
+    const filteredItems = [];
+        
+    for (let i = 0; i < items.length; i += chunkSize) {
+        const chunk = items.slice(i, i + chunkSize);
+        filteredItems.push(...chunk.filter(item => item?.goto === "av" && item?.card_goto === "av"));
+    }
+    obj.data.items = filteredItems;
     }
     $done({ body: JSON.stringify(obj) });
     return;
