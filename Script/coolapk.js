@@ -23,7 +23,10 @@ if (/^https?:\/\/api\.coolapk\.com\/v6\/main\/init/.test(url)) {
                     "Ad.SPLASH_DOWNLOAD_POPUP",
                     "Ad.SPLASH_RETRY_PERIOD",
                     "Ad.CLICK_BUTTON_AREA",
-                    "Ad.BZ_APP_ID"
+                    "Ad.BZ_APP_ID",
+                    "PostToken.businessId",
+                    "MainActivity.RIP_START_TIME",
+                    "MainActivity.redPacketFloatUrl"
                 ]);
                 adKeysToModify.forEach(key => {
                     if (key in item.extraDataArr) {
@@ -33,7 +36,7 @@ if (/^https?:\/\/api\.coolapk\.com\/v6\/main\/init/.test(url)) {
                 item.extraDataArr["SplashAd.timeout"] = 0;
                 item.extraDataArr["SplashAd.Expires"] = 9999999999;
             }
-            const filterEntityIds = new Set([1681, 1633, 1710, 1754, 1966, 1229, 413, 417, 845, 2258, 1170, 2018]);
+            const filterEntityIds = new Set([1681, 1633, 1710, 1754, 1966, 1229, 413, 417, 845, 2258, 1170, 2018, 2274]);
             if (item.entities) {
                 item.entities = item.entities.filter(entity => entity && !filterEntityIds.has(entity.entityId));
             }
