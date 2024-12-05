@@ -68,26 +68,20 @@ if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/mine/.test(url)) {
 // 首页推荐
 if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/feed\/index/.test(url)) {
     let obj = JSON.parse(body);
+
     if (obj.data?.items) {
-        const totalItems = obj.data.items.length;
-        let chunkSize;
-        // 动态确定分段大小
-        if (totalItems < 200) {
-            chunkSize = totalItems;处理
-        } else if (totalItems < 300) {
-            chunkSize = 100; // 中等数据量
-        } else {
-            chunkSize = 50; // 数据量大
-        }
+        const chunkSize = 80; // 每段大小
+        const items = obj.data.items;
         let filteredItems = [];
-        for (let i = 0; i < totalItems; i += chunkSize) {
-            const chunk = obj.data.items.slice(i, i + chunkSize);
+        for (let i = 0; i < items.length; i += chunkSize) {
+            const chunk = items.slice(i, i + chunkSize);
             const filteredChunk = chunk.filter(({ goto, card_goto }) => goto === "av" && card_goto === "av");
             filteredItems = filteredItems.concat(filteredChunk);
         }
         obj.data.items = filteredItems;
     }
-    $done({ body: JSON.stringify(obj) });
+    body = JSON.stringify(obj);
+    $done({ body });
 }
 
 // 番剧于影视
