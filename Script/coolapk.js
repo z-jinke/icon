@@ -40,6 +40,7 @@ if (/^https?:\/\/api\.coolapk\.com\/v6\/main\/init/.test(url)) {
         });
     }
     body = JSON.stringify(obj);
+    $done({ body });
 }
 
 // 首页精简
@@ -50,6 +51,7 @@ if (/^https?:\/\/api\.coolapk\.com\/v6\/main\/indexV8/.test(url)) {
         obj.data = obj.data.filter(item => !filterEntityIds.has(item.entityId));
     }
     body = JSON.stringify(obj);
+    $done({ body });
 }
 
 // 每个Tab模块
@@ -60,6 +62,7 @@ if (/^https?:\/\/api\.coolapk\.com\/v6\/page\/dataList/.test(url)) {
         obj.data = obj.data.filter(item => !filterEntityIds.has(item.entityId));
     }
     body = JSON.stringify(obj);
+    $done({ body });
 }
 
 // 搜索栏
@@ -70,6 +73,7 @@ if (/^https?:\/\/api\.coolapk\.com\/v6\/search/.test(url)) {
         obj.data = obj.data.filter(item => !filterEntityIds.has(item.entityId));
     }
     body = JSON.stringify(obj);
+    $done({ body });
 }
 
 // 我的页面
@@ -80,6 +84,5 @@ if (/^https?:\/\/api\.coolapk\.com\/v6\/account\/loadConfig/.test(url)) {
         obj.data = obj.data.filter(item => !filterEntityIds.has(item.entityId));
     }
     body = JSON.stringify(obj);
+    $done({ body });
 }
-
-$done({ body });
