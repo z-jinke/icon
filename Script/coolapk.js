@@ -6,6 +6,9 @@ if (/^https?:\/\/api\.coolapk\.com\/v6\/main\/init/.test(url)) {
     let obj = JSON.parse(body);
     if (obj.data) {
         obj.data.forEach(item => {
+            if (item.extraData) {
+                item.extraData = "{}";
+            }
             if (item.extraDataArr) {
                 const adKeysToModify = new Set([
                     "Ad.CHANGE_AFTER_SHOW",
