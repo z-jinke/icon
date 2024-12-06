@@ -5,9 +5,9 @@ let body = $response.body;
 if (/^https?:\/\/api\.coolapk\.com\/v6\/main\/init/.test(url)) {
     let obj = JSON.parse(body);
     if (obj.data) {
-        obj.data.forEach(item => {
-            if (item.entityType) {
-                item.entityType = "{}";
+        obj.data.forEach((item, index) => {
+            if (index === 0 && item.entities && item.entities.length > 0) {
+                item.entities.shift();
             }
             if (item.extraDataArr) {
                 const adKeysToModify = new Set([
@@ -36,7 +36,10 @@ if (/^https?:\/\/api\.coolapk\.com\/v6\/main\/init/.test(url)) {
                 item.extraDataArr["SplashAd.timeout"] = 0;
                 item.extraDataArr["SplashAd.Expires"] = 9999999999;
             }
-            const filterEntityIds = new Set([1681, 1633, 1710, 1754, 1966, 1229, 413, 417, 845, 2258, 1170, 2018, 2274]);
+            const filterEntityIds = new Set([
+                1681, 1633, 1710, 1754, 1966, 1229, 
+                413, 417, 845, 2258, 1170, 2018, 2274
+            ]);
             if (item.entities) {
                 item.entities = item.entities.filter(entity => entity && !filterEntityIds.has(entity.entityId));
             }
