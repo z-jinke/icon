@@ -23,10 +23,7 @@ if (/^https?:\/\/api\.coolapk\.com\/v6\/main\/init/.test(url)) {
                     "Ad.SPLASH_DOWNLOAD_POPUP",
                     "Ad.SPLASH_RETRY_PERIOD",
                     "Ad.CLICK_BUTTON_AREA",
-                    "Ad.BZ_APP_ID",
-                    "PostToken.businessId",
-                    "MainActivity.RIP_START_TIME",
-                    "MainActivity.redPacketFloatUrl"
+                    "Ad.BZ_APP_ID"
                 ]);
                 adKeysToModify.forEach(key => {
                     if (key in item.extraDataArr) {
