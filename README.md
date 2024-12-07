@@ -1,4 +1,4 @@
-## 适用Loon
+# 适用Loon
 **点击跳转即可安装到Loon插件上**
 
 ---
@@ -13,7 +13,14 @@
 
 ---
 
-### blackmatrix7的Loon分流规则
-**分流库**:[点击跳转](https://github.com/blackmatrix7/ios_rule_script/tree/2dda750f43d5e554aa01531035214e6fc2f20890/rule/Loon)
+### Loon分流规则
+**源自blackmatrix7的库**
+
+**Telegram**:[点击跳转](https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Telegram/Telegram.list)
+
+**OpenAI**:[点击跳转](https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/OpenAI/OpenAI.list)
+
+**Spotify**:[点击跳转](https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/OpenAI/Spotify.list)
+
 
 ---
