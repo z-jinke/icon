@@ -13,14 +13,11 @@
 
 ---
 
-### Loon分流规则
-**源自blackmatrix7的库**
+### Loon分流
+**源自Blackmatrix7**
 
-**Telegram**:[点击跳转](https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Telegram/Telegram.list)
-
-**OpenAI**:[点击跳转](https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/OpenAI/OpenAI.list)
-
-**Spotify**:[点击跳转](https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/OpenAI/Spotify.list)
-
+| **Telegram**                                                                                                         | **OpenAI**                                                                                                           | **Spotify**                                                                                                          |
+|----------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
+| [点击跳转](https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Telegram/Telegram.list)   | [点击跳转](https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/OpenAI/OpenAI.list)      | [点击跳转](https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/OpenAI/Spotify.list)     |
 
 ---
