@@ -3,6 +3,9 @@
 #!author= Maasea
 #!icon = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/App/YouTube.png
 
+[Rule]
+AND,((PROTOCOL,QUIC),(DOMAIN-KEYWORD,google)),REJECT-DICT
+
 [Rewrite]
 ^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback\?.*?\boad=\d+ reject-200
 
