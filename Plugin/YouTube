@@ -1,5 +1,6 @@
 #!name = Youtube
 #!desc = 去广告
+#!author= Maasea
 #!icon = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/App/YouTube.png
 
 [Rewrite]
