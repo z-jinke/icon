@@ -1,6 +1,4 @@
 # 适用Loon
-**点击跳转即可安装到Loon插件上**
-
 ---
 
 ### 哔哩哔哩
@@ -16,8 +14,8 @@
 ### Loon分流
 **源自Blackmatrix7**
 
-| **Telegram**                                                                                                         | **OpenAI**                                                                                                           | **Spotify**                                                                                                          |
-|----------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
-| [点击跳转](https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Telegram/Telegram.list)   | [点击跳转](https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/OpenAI/OpenAI.list)      | [点击跳转](https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/OpenAI/Spotify.list)     |
+| **Telegram**                                                                                                     | **OpenAI**                                                                                                     | **Spotify**                                                                                                    |**Google**                                                                                                   |
+|------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|
+| [点击跳转](https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Telegram/Telegram.list) | [点击跳转](https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/OpenAI/OpenAI.list) | [点击跳转](https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/OpenAI/Spotify.list) | [点击跳转](https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Google/Google.list) |
 
 ---
