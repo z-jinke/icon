@@ -3,7 +3,7 @@
 #!icon = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/App/YouTube.png
 
 [Rewrite]
-^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback.+&oad mock-response-body data-type=text status-code=502
+^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback\?.*?\boad=\d+ reject-200
 
 [Script]
 http-response ^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(?:browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch) script-path = https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/dist/youtube.response.preview.js, requires-body = true, binary-body-mode = true, tag = 响应修改
