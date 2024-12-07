@@ -70,7 +70,7 @@ if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/feed\/index/.test(url)) {
     let obj = JSON.parse(body);
 
     if (obj.data?.items) {
-        const chunkSize = 80; // 每段大小
+        const chunkSize = 100;
         const items = obj.data.items;
         let filteredItems = [];
         for (let i = 0; i < items.length; i += chunkSize) {
@@ -84,7 +84,7 @@ if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/feed\/index/.test(url)) {
     $done({ body });
 }
 
-// 番剧于影视
+// 番剧与影视
 if (/^https?:\/\/api\.bilibili\.com\/pgc\/page\/(cinema|bangumi)/.test(url)) {
     let obj = JSON.parse(body);
     if (obj.result && obj.result.modules) {
