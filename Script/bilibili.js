@@ -8,7 +8,7 @@ if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/splash\/list/.test(url)) {
         obj.data.list.forEach(item => {
             if (item.is_ad) {
                 item.duration = 0;
-                item.end_time = 90000000;
+                item.end_time = 999999999;
             }
         });
     }
@@ -68,8 +68,7 @@ if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/mine/.test(url)) {
 // 首页推荐
 if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/feed\/index/.test(url)) {
     let obj = JSON.parse(body);
-
-    if (obj.data?.items) {
+    if (obj.data.items) {
         const chunkSize = 100;
         const items = obj.data.items;
         let filteredItems = [];
