@@ -27,11 +27,9 @@ if (/^https?:\/\/app\.bilibili\.com\/x\/resource\/show\/tab/.test(url)) {
             { id: 151, name: "影视", uri: "bilibili://pgc/cinema-tab", tab_id: "film", pos: 4 },
             { id: 39, name: "直播", uri: "bilibili://live/home", tab_id: "直播tab", pos: 5 }
         ];
-
         obj.data.top = [
             { id: 481, name: "消息", uri: "bilibili://link/im_home", tab_id: "消息Top", icon: "http://i0.hdslb.com/bfs/archive/d43047538e72c9ed8fd8e4e34415fbe3a4f632cb.png", pos: 1 }
         ];
-
         obj.data.bottom = [
             { id: 43, name: "首页", uri: "bilibili://main/home/", tab_id: "home", icon: "http://i0.hdslb.com/bfs/archive/1ab5459ccb18c7a996315327257375be3da19886.png", icon_selected: "http://i0.hdslb.com/bfs/archive/d6a45f06684562dd9cb6914007658c0cdb17bbff.png", pos: 1 },
             { id: 44, name: "频道", uri: "bilibili://pegasus/channel/", tab_id: "频道Bottom", icon: "http://i0.hdslb.com/bfs/archive/b4f621f268c1f9eda501805135f132aa9498b0ba.png", icon_selected: "http://i0.hdslb.com/bfs/archive/94539249e59621214f7dc1226cf38a2b8fe4c64f.png", pos: 2 },
