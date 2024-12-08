@@ -5,7 +5,6 @@
 [Script]
 http-response ^https?:\/\/api\.coolapk\.com\/v6\/main\/init script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/coolapk.js, requires-body=true, timeout=60, tag=广告与Tab处理
 http-response ^https?:\/\/api\.coolapk\.com\/v6\/main\/indexV8 script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/coolapk.js, requires-body=true, timeout=60, tag=首页处理
-http-response ^https?:\/\/api\.coolapk\.com\/v6\/search script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/coolapk.js, requires-body=true, timeout=60, tag=搜索栏处理
 http-response ^https?:\/\/api\.coolapk\.com\/v6\/page\/dataList script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/coolapk.js, requires-body=true, timeout=60, tag=Tab栏处理
 http-response ^https?:\/\/api\.coolapk\.com\/v6\/account\/loadConfig script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/coolapk.js, requires-body=true, timeout=60, tag=我的页面处理
 
