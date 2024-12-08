@@ -35,9 +35,6 @@ if (/^https?:\/\/app\.bilibili\.com\/x\/resource\/show\/tab/.test(url)) {
             { id: 45, name: "动态", uri: "bilibili://following/home/", tab_id: "dynamic", icon: "http://i0.hdslb.com/bfs/archive/0f15d5f5be25af29eec6f002561d5000a77cc914.png", icon_selected: "http://i0.hdslb.com/bfs/archive/1d37925562cd3e7d2e5f0868f966b5b9a8b86cde.png", pos: 3 },
             { id: 49, name: "我的", uri: "bilibili://user_center/", tab_id: "我的Bottom", icon: "http://i0.hdslb.com/bfs/archive/aafe71f10eeb5086ac119e4dad769c5aad4d86a2.png", icon_selected: "http://i0.hdslb.com/bfs/archive/36e080bbd8ae858af664ef251741124e04241942.png", pos: 5 }
         ];
-        obj.data.top_more = [
-            { id: 3196, name: "搜索", uri: "bilibili://search", icon: "https://i0.hdslb.com/bfs/legacy/9bfee1c9b87e9172e3524a36eddd8a396facd253.png", pos: 2 }
-        ];
     }
     body = JSON.stringify(obj);
     $done({ body });
