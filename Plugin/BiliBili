@@ -17,4 +17,4 @@ http-response ^https?:\/\/api\.bilibili\.com\/pgc\/page\/(cinema|bangumi) script
 http-response ^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/(mine|ipad) script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/bilibili.js, requires-body=true, timeout=60, tag=我的页面
 
 [MITM]
-hostname = app.bilibili.com,api.bilibili.com
+hostname = *.bilibili.com
