@@ -36,13 +36,13 @@ if (/^https?:\/\/app\.bilibili\.com\/x\/resource\/show\/tab/.test(url)) {
             { id: 49, name: "我的", uri: "bilibili://user_center/", tab_id: "我的Bottom", icon: "http://i0.hdslb.com/bfs/archive/aafe71f10eeb5086ac119e4dad769c5aad4d86a2.png", icon_selected: "http://i0.hdslb.com/bfs/archive/36e080bbd8ae858af664ef251741124e04241942.png", pos: 5 }
         ];
         obj.data.top_more = [
-            { id: 3196, name: "搜索", uri: "bilibili://search", icon: "https://i0.hdslb.com/bfs/legacy/9bfee1c9b87e9172e3524a36eddd8a396facd253.png", pos: 2}
+            { id: 3196, name: "搜索", uri: "bilibili://search", icon: "https://i0.hdslb.com/bfs/legacy/9bfee1c9b87e9172e3524a36eddd8a396facd253.png", pos: 2 }
         ];
     }
     body = JSON.stringify(obj);
     $done({ body });
 }
-
+    
 // 我的页面
 if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/mine/.test(url)) { 
     let obj = JSON.parse(body); 
