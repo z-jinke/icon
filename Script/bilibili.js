@@ -100,14 +100,3 @@ if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/feed\/index/.test(url)) {
     body = JSON.stringify(obj);
     $done({ body });
 }
-
-// 番剧与影视
-if (/^https?:\/\/api\.bilibili\.com\/pgc\/page\/(cinema|bangumi)/.test(url)) {
-    let obj = JSON.parse(body);
-    if (obj.result && obj.result.modules) {
-        obj.result.modules = obj.result.modules.filter(module =>![1284, 248, 1633, 1639].includes(module.module_id)
-        );
-    }
-    body = JSON.stringify(obj);
-    $done({ body });
-}
