@@ -1,7 +1,6 @@
 let url = $request.url;
 let body = $response.body;
 
-// 配置广告与Tab栏
 if (/^https?:\/\/api\.coolapk\.com\/v6\/main\/init/.test(url)) {
     let obj = JSON.parse(body);
     if (obj.data) {
@@ -43,7 +42,6 @@ if (/^https?:\/\/api\.coolapk\.com\/v6\/main\/init/.test(url)) {
     $done({ body });
 }
 
-// 首页精简
 if (/^https?:\/\/api\.coolapk\.com\/v6\/main\/indexV8/.test(url)) {
     let obj = JSON.parse(body);
     if (obj.data) {
@@ -54,7 +52,6 @@ if (/^https?:\/\/api\.coolapk\.com\/v6\/main\/indexV8/.test(url)) {
     $done({ body });
 }
 
-// Tab模块
 if (/^https?:\/\/api\.coolapk\.com\/v6\/page\/dataList/.test(url)) {
     let obj = JSON.parse(body);
     if (obj.data) {
@@ -65,7 +62,6 @@ if (/^https?:\/\/api\.coolapk\.com\/v6\/page\/dataList/.test(url)) {
     $done({ body });
 }
 
-// 搜索栏
 if (/^https?:\/\/api\.coolapk\.com\/v6\/search/.test(url)) {
     let obj = JSON.parse(body);
     if (obj.data) {
@@ -76,7 +72,6 @@ if (/^https?:\/\/api\.coolapk\.com\/v6\/search/.test(url)) {
     $done({ body });
 }
 
-// 我的页面
 if (/^https?:\/\/api\.coolapk\.com\/v6\/account\/loadConfig/.test(url)) {
     let obj = JSON.parse(body);
     if (obj.data) {
