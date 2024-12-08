@@ -44,31 +44,46 @@ if (/^https?:\/\/app\.bilibili\.com\/x\/resource\/show\/tab/.test(url)) {
 }
 
 // 我的页面
-if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/mine/.test(url)) {
-    let obj = JSON.parse(body);
-    // ipad 
-    if (url.includes("/ipad")) {
-        if (obj.data) {
+if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/mine/.test(url)) { 
+    let obj = JSON.parse(body); 
+    if (url.includes("/ipad")) { 
+        if (obj.data) {  
+            obj.data.ipad_recommend_sections = [
+                { "id": 789, "title": "我的关注", "uri": "bilibili://user_center/myfollows", "icon": "http://i0.hdslb.com/bfs/feed-admin/fdd7f676030c6996d36763a078442a210fc5a8c0.png", "mng_resource": {} }, 
+                { "id": 790, "title": "我的消息", "uri": "bilibili://link/im_home", "icon": "http://i0.hdslb.com/bfs/feed-admin/e1471740130a08a48b02a4ab29ed9d5f2281e3bf.png", "mng_resource": {} }
+            ]; 
+            obj.data.ipad_more_sections = [
+                { "id": 797, "title": "我的客服", "uri": "bilibili://user_center/feedback", "icon": "http://i0.hdslb.com/bfs/feed-admin/7801a6180fb67cf5f8ee05a66a4668e49fb38788.png", "mng_resource": {} }, 
+                { "id": 798, "title": "设置", "uri": "bilibili://user_center/setting", "icon": "http://i0.hdslb.com/bfs/feed-admin/34e8faea00b3dd78977266b58d77398b0ac9410b.png", "mng_resource": {} }
+            ]; 
             delete obj.data.ipad_upper_sections;
-            if (obj.data.ipad_recommend_sections) {
-                obj.data.ipad_recommend_sections = obj.data.ipad_recommend_sections.filter(item =>![791, 792, 793, 794, 2542].includes(item.id)
-                );
-            }
-        }
-    } else {
-        // iPhone
-        if (obj.data && obj.data.sections_v2) {
-            obj.data.sections_v2 = obj.data.sections_v2.filter(section =>!["创作中心", "推荐服务", "其他服务"].includes(section.title));
-            obj.data.sections_v2.forEach(section => {
-                if (section.items) {
-                    section.items = section.items.filter(item =>![171, 172, 173, 174, 429, 430, 431, 432, 950].includes(item.id)
-                    );
+        } 
+    } else { 
+        if (obj.data) { 
+            obj.data.sections_v2 = [
+                {
+                    "items": [
+                        { "id": 425, "title": "离线缓存", "icon": "http://i0.hdslb.com/bfs/archive/5fc84565ab73e716d20cd2f65e0e1de9495d56f8.png", "common_op_item": {}, "uri": "bilibili://user_center/download" }, 
+                        { "id": 426, "title": "历史记录", "icon": "http://i0.hdslb.com/bfs/archive/8385323c6acde52e9cd52514ae13c8b9481c1a16.png", "common_op_item": {}, "uri": "bilibili://user_center/history" }, 
+                        { "id": 427, "title": "我的收藏", "icon": "http://i0.hdslb.com/bfs/archive/d79b19d983067a1b91614e830a7100c05204a821.png", "common_op_item": {}, "uri": "bilibili://user_center/favourite" }, 
+                        { "id": 428, "title": "稍后再看", "icon": "http://i0.hdslb.com/bfs/archive/63bb768caa02a68cb566a838f6f2415f0d1d02d6.png", "common_op_item": {}, "uri": "bilibili://user_center/watch_later" }
+                    ], 
+                    "style": 1, 
+                    "button": {}
+                }, 
+                {
+                    "items": [
+                        { "id": 433, "title": "联系客服", "icon": "http://i0.hdslb.com/bfs/archive/7ca840cf1d887a45ee1ef441ab57845bf26ef5fa.png", "common_op_item": {}, "uri": "bilibili://user_center/feedback" }, 
+                        { "id": 434, "title": "设置", "icon": "http://i0.hdslb.com/bfs/archive/e932404f2ee62e075a772920019e9fbdb4b5656a.png", "common_op_item": {}, "uri": "bilibili://user_center/setting" }
+                    ], 
+                    "style": 2, 
+                    "button": {}
                 }
-            });
-        }
-    }
-    body = JSON.stringify(obj);
-    $done({ body });
+            ]; 
+        } 
+    } 
+    body = JSON.stringify(obj); 
+    $done({ body }); 
 }
 
 // 首页推荐
