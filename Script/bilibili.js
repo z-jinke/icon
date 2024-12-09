@@ -83,16 +83,12 @@ if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/mine/.test(url)) {
                         { "id": 427, "title": "我的收藏", "icon": "http://i0.hdslb.com/bfs/archive/d79b19d983067a1b91614e830a7100c05204a821.png", "common_op_item": {}, "uri": "bilibili://user_center/favourite" }, 
                         { "id": 428, "title": "稍后再看", "icon": "http://i0.hdslb.com/bfs/archive/63bb768caa02a68cb566a838f6f2415f0d1d02d6.png", "common_op_item": {}, "uri": "bilibili://user_center/watch_later" }
                     ], 
-                    "style": 1, 
-                    "button": {}
                 }, 
                 {
                     "items": [
                         { "id": 433, "title": "联系客服", "icon": "http://i0.hdslb.com/bfs/archive/7ca840cf1d887a45ee1ef441ab57845bf26ef5fa.png", "common_op_item": {}, "uri": "bilibili://user_center/feedback" }, 
                         { "id": 434, "title": "设置", "icon": "http://i0.hdslb.com/bfs/archive/e932404f2ee62e075a772920019e9fbdb4b5656a.png", "common_op_item": {}, "uri": "bilibili://user_center/setting" }
                     ], 
-                    "style": 2, 
-                    "button": {}
                 }
             ]; 
         } 
