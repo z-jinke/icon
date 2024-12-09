@@ -5,10 +5,9 @@
 
 [Rewrite]
 ^https?://app.bilibili.com/x/v2/splash/show reject-200
-^https?://api.bilibili.com/pgc/season/player/cards reject-200
+^https?://api.bilibili.com/pgc/season/player reject-200
 ^https?:\/\/app\.bilibili\.com\/x\/resource\/ip reject-200
-^https?:\/\/api\.bilibili\.com\/x\/vip\/ads\/material\/report reject-200
-^https?:\/\/api\.bilibili\.com\/pgc\/season\/player\/ogv\/cards reject-200
+^https?:\/\/api\.bilibili\.com\/x\/vip\/ads reject-200
 
 [Script]
 http-response ^https?:\/\/app\.bilibili\.com\/x\/v2\/splash\/list script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/bilibili.js, requires-body=true, timeout=60, tag=开屏广告处理
