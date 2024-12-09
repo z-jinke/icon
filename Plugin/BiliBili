@@ -1,5 +1,6 @@
 #!name= 哔哩哔哩
 #!desc= 去广告
+#!author= z-jinke
 #!icon= https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/Bilibili.png
 
 [Rewrite]
