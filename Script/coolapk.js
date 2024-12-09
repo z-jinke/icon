@@ -6,24 +6,7 @@ if (/^https?:\/\/api\.coolapk\.com\/v6\/main\/init/.test(url)) {
     if (obj.data) {
         obj.data.forEach(item => {
             if (item.extraDataArr) {
-                const adKeysToModify = new Set([
-                    "Ad.CHANGE_AFTER_SHOW",
-                    "Ad.ADLOAD_POS_ID",
-                    "Ad.KS_APP_ID",
-                    "Ad.GDT_APP_ID",
-                    "Ad.TO_APP_KEY",
-                    "Ad.PRELOAD_THRESHOLD_IOS",
-                    "Ad.DOWNLOAD_POPUP",
-                    "Ad.GROWTH_BACK_PRESS",
-                    "Ad.PRELOAD",
-                    "Ad.PRELOAD_AFTER_USE",
-                    "Ad.TO_APP_ID",
-                    "Ad.PRELOAD_THRESHOLD",
-                    "Ad.SPLASH_DOWNLOAD_POPUP",
-                    "Ad.SPLASH_RETRY_PERIOD",
-                    "Ad.CLICK_BUTTON_AREA",
-                    "Ad.BZ_APP_ID"
-                ]);
+                const adKeysToModify = new Set(["Ad.CHANGE_AFTER_SHOW", "Ad.ADLOAD_POS_ID", "Ad.KS_APP_ID", "Ad.GDT_APP_ID", "Ad.TO_APP_KEY", "Ad.PRELOAD_THRESHOLD_IOS", "Ad.DOWNLOAD_POPUP", "Ad.GROWTH_BACK_PRESS", "Ad.PRELOAD", "Ad.PRELOAD_AFTER_USE", "Ad.TO_APP_ID", "Ad.PRELOAD_THRESHOLD", "Ad.SPLASH_DOWNLOAD_POPUP", "Ad.SPLASH_RETRY_PERIOD", "Ad.CLICK_BUTTON_AREA", "Ad.BZ_APP_ID"]);
                 adKeysToModify.forEach(key => {
                     if (key in item.extraDataArr) {
                         item.extraDataArr[key] = "0";
