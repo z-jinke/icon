@@ -1,7 +1,7 @@
 #!name= Spotify
 #!desc= Premium解锁
 #!author= app2smile
-#!icon= https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/Spotify.png
+#!icon= https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Spotify.png
 
 [Rewrite]
 ^https?:\/\/spclient\.wg\.spotify\.com\/user-customization-service\/v1\/customize$ header-del if-none-match
