@@ -25,7 +25,7 @@ if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/feed\/index/.test(url)) {
         let filteredItems = [];
         for (let i = 0; i < items.length; i += chunkSize) {
             const chunk = items.slice(i, i + chunkSize);
-            const filteredChunk = chunk.filter(({ goto, card_goto }) => goto === "av" && card_goto === "av");
+            const filteredChunk = chunk.filter(({ card_goto }) => card_goto === "av");
             filteredItems = filteredItems.concat(filteredChunk);
         }
         obj.data.items = filteredItems;
