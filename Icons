@@ -6,24 +6,24 @@
             "url": "https://raw.githubusercontent.com/cc63/ICON/main/icons/Loon.png"
         },      
         {
+            "name": "coolapk",
+            "url": "https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/png/coolapk.png"
+        },      
+        {
             "name": "bilibili",
             "url": "https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/png/bilibili.png"
         },      
         {
-            "name": "spotify",
-            "url": "https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/png/spotify.png"
-        },      
-        {
-            "name": "telegram",
-            "url": "https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/png/telegram.png"
+            "name": "wangyiyun",
+            "url": "https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/png/wangyiyun.png"
         },      
         {
             "name": "youtube",
             "url": "https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/png/youtube.png"
         },      
         {
-            "name": "openai",
-            "url": "https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/png/openai.png"
+            "name": "xiaohongshui",
+            "url": "https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/png/xiaohongshui.png"
         },
     ]
 }
