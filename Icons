@@ -16,6 +16,14 @@
         {
             "name": "telegram",
             "url": "https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/png/telegram.png"
+        },      
+        {
+            "name": "youtube",
+            "url": "https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/png/youtube.png"
+        },      
+        {
+            "name": "openai",
+            "url": "https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/png/openai.png"
         },
     ]
 }
