@@ -8,6 +8,14 @@
         {
             "name": "bilibili",
             "url": "https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/png/bilibili.png"
-        }
+        },      
+        {
+            "name": "spotify",
+            "url": "https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/png/spotify.png"
+        },      
+        {
+            "name": "telegram",
+            "url": "https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/png/telegram.png"
+        },
     ]
 }
