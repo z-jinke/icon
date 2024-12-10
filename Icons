@@ -1,0 +1,13 @@
+{
+    "name": "图标",
+    "icons": [      
+        {
+            "name": "Loon",
+            "url": "https://raw.githubusercontent.com/cc63/ICON/main/icons/Loon.png"
+        },      
+        {
+            "name": "bilibili",
+            "url": "https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/PNG/bilibili.png"
+        }
+    ]
+}
