@@ -19,17 +19,15 @@ if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/splash\/list/.test(url)) {
 // 首页推荐
 if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/feed\/index/.test(url)) {
     let obj = JSON.parse(body);
-    if (obj.data.items) {项
-        const filteredItems = [];
+    if (obj.data.items) {
+        const chunkSize = 100;
         const items = obj.data.items;
-        const total = items.length;
-        for (let i = 0; i < total; i++) {
-            const item = items[i];
-            if (item.goto === "av" && item.card_goto === "av") {
-                filteredItems.push(item);
-            }
+        let filteredItems = [];
+        for (let i = 0; i < items.length; i += chunkSize) {
+            const chunk = items.slice(i, i + chunkSize);
+            const filteredChunk = chunk.filter(({ goto, card_goto }) => goto === "av" && card_goto === "av");
+            filteredItems = filteredItems.concat(filteredChunk);
         }
-        // 过滤后的结果赋值回原数据
         obj.data.items = filteredItems;
     }
     body = JSON.stringify(obj);
