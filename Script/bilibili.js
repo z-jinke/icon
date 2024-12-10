@@ -128,14 +128,14 @@ if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/mine/.test(url)) {
             obj.data.ipad_recommend_sections = [
                 {
                     id: 789,
-                    title: "我的关注",
+                    title: "关注",
                     uri: "bilibili://user_center/myfollows",
                     icon: "http://i0.hdslb.com/bfs/feed-admin/fdd7f676030c6996d36763a078442a210fc5a8c0.png",
                     mng_resource: {}
                 },
                 {
                     id: 790,
-                    title: "我的消息",
+                    title: "消息",
                     uri: "bilibili://link/im_home",
                     icon: "http://i0.hdslb.com/bfs/feed-admin/e1471740130a08a48b02a4ab29ed9d5f2281e3bf.png",
                     mng_resource: {}
@@ -144,7 +144,7 @@ if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/mine/.test(url)) {
             obj.data.ipad_more_sections = [
                 {
                     id: 797,
-                    title: "我的客服",
+                    title: "客服",
                     uri: "bilibili://user_center/feedback",
                     icon: "http://i0.hdslb.com/bfs/feed-admin/7801a6180fb67cf5f8ee05a66a4668e49fb38788.png",
                     mng_resource: {}
@@ -200,7 +200,7 @@ if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/mine/.test(url)) {
                     items: [
                         {
                             id: 433,
-                            title: "联系客服",
+                            title: "客服",
                             icon: "http://i0.hdslb.com/bfs/archive/7ca840cf1d887a45ee1ef441ab57845bf26ef5fa.png",
                             common_op_item: {},
                             uri: "bilibili://user_center/feedback"
