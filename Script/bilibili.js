@@ -89,7 +89,7 @@ if (/^https?:\/\/app\.bilibili\.com\/x\/resource\/show\/tab/.test(url)) {
         obj.data.bottom = [
             {
                 id: 43,
-                name: "首页",
+                name: "主页",
                 uri: "bilibili://main/home/",
                 tab_id: "home",
                 icon: "http://i0.hdslb.com/bfs/archive/1ab5459ccb18c7a996315327257375be3da19886.png",
@@ -128,14 +128,14 @@ if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/mine/.test(url)) {
             obj.data.ipad_recommend_sections = [
                 {
                     id: 789,
-                    title: "关注",
+                    title: "关注列表",
                     uri: "bilibili://user_center/myfollows",
                     icon: "http://i0.hdslb.com/bfs/feed-admin/fdd7f676030c6996d36763a078442a210fc5a8c0.png",
                     mng_resource: {}
                 },
                 {
                     id: 790,
-                    title: "消息",
+                    title: "消息列表",
                     uri: "bilibili://link/im_home",
                     icon: "http://i0.hdslb.com/bfs/feed-admin/e1471740130a08a48b02a4ab29ed9d5f2281e3bf.png",
                     mng_resource: {}
@@ -144,14 +144,14 @@ if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/mine/.test(url)) {
             obj.data.ipad_more_sections = [
                 {
                     id: 797,
-                    title: "客服",
+                    title: "官方客服",
                     uri: "bilibili://user_center/feedback",
                     icon: "http://i0.hdslb.com/bfs/feed-admin/7801a6180fb67cf5f8ee05a66a4668e49fb38788.png",
                     mng_resource: {}
                 },
                 {
                     id: 798,
-                    title: "设置",
+                    title: "我的设置",
                     uri: "bilibili://user_center/setting",
                     icon: "http://i0.hdslb.com/bfs/feed-admin/34e8faea00b3dd78977266b58d77398b0ac9410b.png",
                     mng_resource: {}
