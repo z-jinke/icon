@@ -4,12 +4,10 @@ let body = $response.body;
 // 开屏广告
 if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/splash\/list/.test(url)) {
     let obj = JSON.parse(body);
-    if (obj.data && obj.data.list) {
+    if (obj.data) {
         obj.data.list.forEach(item => {
-            if (item.is_ad) {
-                item.duration = 0;
-                item.end_time = 999999999;
-            }
+            item.duration = 0;
+            item.end_time = 999999999;
         });
     }
     body = JSON.stringify(obj);
