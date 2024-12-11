@@ -76,6 +76,14 @@
         {
             "name": "weibo",
             "url": "https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/png/weibo.png"
+        }                                                                                         
+        {
+            "name": "Swiftgram",
+            "url": "https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/png/Swiftgram.png"
+        }                                                                                         
+        {
+            "name": "coolapk",
+            "url": "https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/png/coolapk.png"
         }
     ]
 }
