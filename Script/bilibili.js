@@ -11,26 +11,25 @@ if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/splash\/list/.test(url)) {
         });
     }
     body = JSON.stringify(obj);
-    $done({ body });
 }
+$done({ body });
 
 // 首页推荐
 if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/feed\/index/.test(url)) {
     let obj = JSON.parse(body);
     if (obj.data.items) {
-        const chunkSize = 100;
-        const items = obj.data.items;
         let filteredItems = [];
-        for (let i = 0; i < items.length; i += chunkSize) {
-            const chunk = items.slice(i, i + chunkSize);
-            const filteredChunk = chunk.filter(({ card_goto, goto }) => goto === "av" && card_goto === "av");
-            filteredItems = filteredItems.concat(filteredChunk);
+        for (let i = 0; i < obj.data.items.length; i++) {
+            let item = obj.data.items[i];
+            if (item.card_goto === "av" && item.goto === "av") {
+                filteredItems.push(item);
+            }
         }
         obj.data.items = filteredItems;
     }
     body = JSON.stringify(obj);
-    $done({ body });
 }
+$done({ body });
 
 // 主页Tab栏
 if (/^https?:\/\/app\.bilibili\.com\/x\/resource\/show\/tab/.test(url)) {
@@ -45,8 +44,8 @@ if (/^https?:\/\/app\.bilibili\.com\/x\/resource\/show\/tab/.test(url)) {
         ];
     }
     body = JSON.stringify(obj);
-    $done({ body });
 }
+$done({ body });
 
 // 我的页面
 if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/mine/.test(url)) {
@@ -62,5 +61,5 @@ if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/mine/.test(url)) {
         }
     }
     body = JSON.stringify(obj);
-    $done({ body });
 }
+$done({ body });
