@@ -1,1 +1,81 @@
-
+{
+    "name": "图标",
+    "icons": [      
+        {
+            "name": "Loon",
+            "url": "https://raw.githubusercontent.com/cc63/ICON/main/icons/Loon.png"
+        },                                                                                         
+        {
+            "name": "weixin",
+            "url": "https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/png/weixin.png"
+        },                                                                                         
+        {
+            "name": "applemusic",
+            "url": "https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/png/applemusic.png"
+        },                                                                                         
+        {
+            "name": "youtube",
+            "url": "https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/png/youtube.png"
+        },                                                                                         
+        {
+            "name": "wangyiyun",
+            "url": "https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/png/wangyiyun.png"
+        },                                                                                         
+        {
+            "name": "telegram",
+            "url": "https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/png/telegram.png"
+        },                                                                                         
+        {
+            "name": "Google",
+            "url": "https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/png/Google.png"
+        },                                                                                         
+        {
+            "name": "spotify",
+            "url": "https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/png/spotify.png"
+        },                                                                                         
+        {
+            "name": "X",
+            "url": "https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/png/X.png"
+        },                                                                                         
+        {
+            "name": "Facebook",
+            "url": "https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/png/Facebook.png"
+        },                                                                                         
+        {
+            "name": "Instagram",
+            "url": "https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/png/Instagram.png"
+        },                                                                                         
+        {
+            "name": "QQ",
+            "url": "https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/png/QQ.png"
+        },                                                                                         
+        {
+            "name": "qqmusic",
+            "url": "https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/png/qqmusic.png"
+        },                                                                                         
+        {
+            "name": "bilibili",
+            "url": "https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/png/bilibili.png"
+        },                                                                                         
+        {
+            "name": "aliapy",
+            "url": "https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/png/aliapy.png"
+        },                                                                                         
+        {
+            "name": "chatgpt",
+            "url": "https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/png/chatgpt.png"
+        },                                                                                         
+        {
+            "name": "gmail",
+            "url": "https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/png/gmail.png"
+        },                                                                                         
+        {
+            "name": "youku",
+            "url": "https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/png/youku.png"
+        },                                                                                         
+        {
+            "name": weibo",
+            "url": "https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/png/weibo.png"
+        }
+    ]
+}
