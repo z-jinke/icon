@@ -74,7 +74,7 @@
             "url": "https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/png/youku.png"
         },                                                                                         
         {
-            "name": weibo",
+            "name": "weibo",
             "url": "https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/png/weibo.png"
         }
     ]
