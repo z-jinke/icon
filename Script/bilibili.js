@@ -32,9 +32,9 @@ if (/^https?:\/\/app\.bilibili\.com\/x\/v2\/feed\/index/.test(url)) {
     $done({ body });
 }
 
-// 主页 Tab 栏// 主页 Tab 栏
+// 主页Tab栏
 if (/^https?:\/\/app\.bilibili\.com\/x\/resource\/show\/tab/.test(url)) {
-    let obj = JSON.parse(body) {
+    let obj = JSON.parse(body);
     if (obj.data) {
         obj.data.top_more = ""
         obj.data.tab = [{id:40,name:"推荐",uri:"bilibili://pegasus/promo",tab_id:"推荐tab",pos:1,default_selected:1},{id:41,name:"热门",uri:"bilibili://pegasus/hottopic",tab_id:"hottopic",pos:2},{id:2894,name:"动漫",uri:"bilibili://pgc/home",tab_id:"bangumi",pos:3},{id:151,name:"电影",uri:"bilibili://pgc/cinema-tab",tab_id:"film",pos:4},{id:39,name:"直播",uri:"bilibili://live/home",tab_id:"直播tab",pos:5}            
