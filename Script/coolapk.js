@@ -22,8 +22,8 @@ if (/^https?:\/\/api\.coolapk\.com\/v6\/main\/init/.test(url)) {
         });
     }
     body = JSON.stringify(obj);
-    $done({ body });
 }
+$done({ body });
 
 if (/^https?:\/\/api\.coolapk\.com\/v6\/main\/indexV8/.test(url)) {
     let obj = JSON.parse(body);
@@ -32,8 +32,8 @@ if (/^https?:\/\/api\.coolapk\.com\/v6\/main\/indexV8/.test(url)) {
         obj.data = obj.data.filter(item => !filterEntityIds.has(item.entityId));
     }
     body = JSON.stringify(obj);
-    $done({ body });
 }
+$done({ body });
 
 if (/^https?:\/\/api\.coolapk\.com\/v6\/page\/dataList/.test(url)) {
     let obj = JSON.parse(body);
@@ -42,8 +42,8 @@ if (/^https?:\/\/api\.coolapk\.com\/v6\/page\/dataList/.test(url)) {
         obj.data = obj.data.filter(item => !filterEntityIds.has(item.entityId));
     }
     body = JSON.stringify(obj);
-    $done({ body });
 }
+$done({ body });
 
 if (/^https?:\/\/api\.coolapk\.com\/v6\/account\/loadConfig/.test(url)) {
     let obj = JSON.parse(body);
@@ -52,5 +52,5 @@ if (/^https?:\/\/api\.coolapk\.com\/v6\/account\/loadConfig/.test(url)) {
         obj.data = obj.data.filter(item => !filterEntityIds.has(item.entityId));
     }
     body = JSON.stringify(obj);
-    $done({ body });
 }
+$done({ body });
