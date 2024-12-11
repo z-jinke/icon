@@ -1,7 +1,7 @@
 #!name= 哔哩哔哩
 #!desc= 去广告
 #!author= z-jinke
-#!icon= https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/png/telegram.png
+#!icon= https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/png/bilibili.png
 
 [Rewrite]
 ^https?://app.bilibili.com/x/v2/splash/show reject-200
