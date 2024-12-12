@@ -6,16 +6,15 @@ if (/^https?:\/\/api\.coolapk\.com\/v6\/main\/init/.test(url)) {
     if (obj.data) {
         obj.data.forEach(item => {
             if (item.extraDataArr) {
-                const adKeysToModify = new Set(["Ad.CHANGE_AFTER_SHOW", "Ad.ADLOAD_POS_ID", "Ad.KS_APP_ID", "Ad.DOWNLOAD_POPUP", "Ad.PRELOAD", "Ad.PRELOAD_AFTER_USE", "Ad.PRELOAD_THRESHOLD", "Ad.PRELOAD_THRESHOLD_IOS", "Ad.GDT_APP_ID", "Ad.TO_APP_ID", "Ad.TO_APP_KEY", "Ad.TT_APP_ID", "Ad.BZ_APP_ID", "Ad.SPLASH_DOWNLOAD_POPUP", "Ad.SPLASH_RETRY_PERIOD", "Ad.CLICK_BUTTON_AREA", "Ad.GROWTH_BACK_PRESS", "MainActivity.redPacketIconV2", "MainActivity.redPacketFloat", "MainActivity.redPacketFloatUrl"]);
-                adKeysToModify.forEach(key => {
-                    if (key in item.extraDataArr) {
-                        item.extraDataArr[key] = "";
+                for (let key in item.extraDataArr) {
+                    if (item.extraDataArr.hasOwnProperty(key)) {
+                        if (!Array.isArray(item.extraDataArr[key])) {
+                            item.extraDataArr[key] = "0";
+                        }
                     }
-                });
-                item.extraDataArr["SplashAd.timeout"] = 0;
-                item.extraDataArr["SplashAd.Expires"] = 9999999999;
-            }
-            const filterEntityIds = new Set([1681, 1633, 1710, 1754, 1966, 1229, 413, 417, 845, 2258, 1170, 2018, 2274, 944]);
+                }
+            }     
+            const filterEntityIds = new Set([1681, 1633, 1710, 1754, 1966, 1229, 2261, 417, 845, 2258, 1170, 2018, 2274, 944]);
             if (item.entities) {
                 item.entities = item.entities.filter(entity => entity && !filterEntityIds.has(entity.entityId));
             }
