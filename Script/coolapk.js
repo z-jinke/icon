@@ -33,6 +33,15 @@ if (/^https?:\/\/api\.coolapk\.com\/v6\/main\/indexV8/.test(url)) {
     $done({ body });
 }
 
+if (/^https?:\/\/api\.coolapk\.com\/v6\/feed\/detail\?id/.test(url)) {
+    let obj = JSON.parse(body);
+    if (obj.data) {   
+        obj.data.detailSponsorCard = ""
+    }
+    body = JSON.stringify(obj);
+    $done({ body });
+}
+
 if (/^https?:\/\/api\.coolapk\.com\/v6\/page\/dataList/.test(url)) {
     let obj = JSON.parse(body);
     if (obj.data) { 
