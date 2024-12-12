@@ -27,7 +27,7 @@ if (/^https?:\/\/api\.coolapk\.com\/v6\/main\/init/.test(url)) {
 if (/^https?:\/\/api\.coolapk\.com\/v6\/main\/indexV8/.test(url)) {
     let obj = JSON.parse(body);
     if (obj.data) {
-        const filterEntityIds = new Set([32557, 13635, 29349]);
+        const filterEntityIds = new Set([32557, 13635, 29349, 29519]);
         obj.data = obj.data.filter(item => !filterEntityIds.has(item.entityId));
     }
     body = JSON.stringify(obj);
