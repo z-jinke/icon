@@ -4,11 +4,11 @@
 #!icon= https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/png/coolapk.png
 
 [Script]
-http-response ^https?:\/\/api\.coolapk\.com\/v6\/main\/init script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/coolapk.js, requires-body=true, timeout=60, tag=广告与Tab布局处理
-http-response ^https?:\/\/api\.coolapk\.com\/v6\/main\/indexV8 script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/coolapk.js, requires-body=true, timeout=60, tag=首页广告处理
-http-response ^https?:\/\/api\.coolapk\.com\/v6\/feed\/detail\?id script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/coolapk.js, requires-body=true, timeout=60, tag=帖子广告处理
-http-response ^https?:\/\/api\.coolapk\.com\/v6\/page\/dataList script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/coolapk.js, requires-body=true, timeout=60, tag=Tab内容栏处理
-http-response ^https?:\/\/api\.coolapk\.com\/v6\/account\/loadConfig script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/coolapk.js, requires-body=true, timeout=60, tag=我的页面处理
+http-response ^https:\/\/api\.coolapk\.com\/v6\/main\/init script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/coolapk.js, requires-body=true, timeout=60, tag=广告与Tab布局处理
+http-response ^https:\/\/api\.coolapk\.com\/v6\/main\/indexV8 script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/coolapk.js, requires-body=true, timeout=60, tag=首页广告处理
+http-response ^https:\/\/api\.coolapk\.com\/v6\/feed\/detail\?id script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/coolapk.js, requires-body=true, timeout=60, tag=帖子广告处理
+http-response ^https:\/\/api\.coolapk\.com\/v6\/page\/dataList script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/coolapk.js, requires-body=true, timeout=60, tag=Tab内容栏处理
+http-response ^https:\/\/api\.coolapk\.com\/v6\/account\/loadConfig script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/coolapk.js, requires-body=true, timeout=60, tag=我的页面处理
 
 [MITM]
 hostname = api.coolapk.com
