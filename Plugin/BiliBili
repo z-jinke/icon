@@ -13,6 +13,7 @@ http-response ^https:\/\/app\.bilibili\.com\/x\/v2\/splash\/list script-path=htt
 http-response ^https:\/\/app\.bilibili\.com\/x\/v2\/feed\/index script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/bilibili.js, requires-body=true, timeout=60, tag=首页推荐处理
 http-response ^https:\/\/app\.bilibili\.com\/x\/resource\/show\/tab\/v2 script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/bilibili.js, requires-body=true, timeout=60, tag=主页Tab栏处理
 http-response ^https:\/\/app\.bilibili\.com\/x\/v2\/account\/(mine|ipad) script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/bilibili.js, requires-body=true, timeout=60, tag=我的页面处理
+http-response ^https:\/\/app\.bilibili\.com\/bilibili\.app\.(view\.v1\.View\/View|dynamic\.v2\.Dynamic\/DynAll|playurl\.v1\.PlayURL\/PlayView)$ script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/bilibili-proto.js, requires-body=true, binary-body-mode=true, timeout=60, tag=视频页面处理
 
 [MITM]
 hostname = *.bilibili.com
