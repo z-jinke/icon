@@ -14,18 +14,10 @@ if (/^https:\/\/app\.bilibili\.com\/x\/v2\/splash\/list/.test(url)) {
     $done({ body });
 }
 
-
 if (/^https:\/\/app\.bilibili\.com\/x\/v2\/feed\/index/.test(url)) {
     let obj = JSON.parse(body);
-    if (obj.data.items) {
-        let filteredItems = [];
-        for (let i = 0; i < obj.data.items.length; i++) {
-            let item = obj.data.items[i];
-            if (item.card_goto === "av" && item.goto === "av") {
-                filteredItems.push(item);
-            }
-        }
-        obj.data.items = filteredItems;
+    if (obj.data) {
+        obj.data.items = obj.data.items.filter(item => item.card_goto === "av" && item.goto === "av");
     }
     body = JSON.stringify(obj);
     $done({ body });
