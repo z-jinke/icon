@@ -1,7 +1,7 @@
 let url = $request.url;
 let body = $response.body;
 
-if (/^https?:\/\/api\.coolapk\.com\/v6\/main\/init/.test(url)) {
+if (/^https:\/\/api\.coolapk\.com\/v6\/main\/init/.test(url)) {
     let obj = JSON.parse(body);
     if (obj.data) {
         obj.data.forEach(item => {
@@ -24,7 +24,7 @@ if (/^https?:\/\/api\.coolapk\.com\/v6\/main\/init/.test(url)) {
     $done({ body });
 }
 
-if (/^https?:\/\/api\.coolapk\.com\/v6\/main\/indexV8/.test(url)) {
+if (/^https:\/\/api\.coolapk\.com\/v6\/main\/indexV8/.test(url)) {
     let obj = JSON.parse(body);
     if (obj.data) {
         obj.data = obj.data.filter(item => item.entityType === "feed");
@@ -33,7 +33,7 @@ if (/^https?:\/\/api\.coolapk\.com\/v6\/main\/indexV8/.test(url)) {
     $done({ body });
 }
 
-if (/^https?:\/\/api\.coolapk\.com\/v6\/feed\/detail\?id/.test(url)) {
+if (/^https:\/\/api\.coolapk\.com\/v6\/feed\/detail\?id/.test(url)) {
     let obj = JSON.parse(body);
     if (obj.data) {   
         obj.data.detailSponsorCard = ""
@@ -43,7 +43,7 @@ if (/^https?:\/\/api\.coolapk\.com\/v6\/feed\/detail\?id/.test(url)) {
     $done({ body });
 }
 
-if (/^https?:\/\/api\.coolapk\.com\/v6\/page\/dataList/.test(url)) {
+if (/^https:\/\/api\.coolapk\.com\/v6\/page\/dataList/.test(url)) {
     let obj = JSON.parse(body);
     if (obj.data) { 
         obj.data = obj.data.filter(item => item.entityId!="24309" && item.entityId!="12889" && item.entityId!="36279"  && item.entityId!="36278" && item.entityId!="40133" && item.entityId!="37755" &&  item.entityId!="29213");
@@ -52,7 +52,7 @@ if (/^https?:\/\/api\.coolapk\.com\/v6\/page\/dataList/.test(url)) {
     $done({ body });
 }
 
-if (/^https?:\/\/api\.coolapk\.com\/v6\/account\/loadConfig/.test(url)) {
+if (/^https:\/\/api\.coolapk\.com\/v6\/account\/loadConfig/.test(url)) {
     let obj = JSON.parse(body);
     if (obj.data) {
         obj.data = obj.data.filter(item => item.entityId!="14809" && item.entityId!="1002" && item.entityId!="1005");
