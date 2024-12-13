@@ -3,4 +3,4 @@
 #!icon = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/App/Netisp.png
 
 [Script]
-generic script-path =https://github.com/z-jinke/loon/raw/refs/heads/main/Script/CheckNode.js, timeout = 60, tag = 节点位置查询
+generic script-path =https://github.com/z-jinke/loon/raw/refs/heads/main/Script/checknode.js, timeout = 60, tag = 节点位置查询
