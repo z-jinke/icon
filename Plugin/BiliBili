@@ -1,7 +1,7 @@
-#!name= 哔哩哔哩
-#!desc= 修改精简
-#!author= z-jinke
-#!icon= https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/png/bilibili.png
+#!name = BiliBili
+#!desc = 精简去除广告
+#!author = z-jinke
+#!icon = https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/png/bilibili.png
 
 [Rewrite]
 ^https:\/\/app\.bilibili\.com\/x\/v2\/splash\/show reject-200
