@@ -1,6 +1,6 @@
-#!name = 节点检测
-#!desc = 位置与信息
-#!icon = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/App/Netisp.png
+#!name = 节点查询
+#!desc = 位置信息
+#!icon = https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/png/CheckNode.png
 
 [Script]
 generic script-path =https://github.com/z-jinke/loon/raw/refs/heads/main/Script/checknode.js, timeout = 60, tag = 节点查询
