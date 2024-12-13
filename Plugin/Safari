@@ -4,7 +4,7 @@
 #!icon = https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/png/Safari.png
 
 [Script]
-http-request ^https:\/\/www\.google\.cn\/search\? script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/safari.js, timeout=60, tag=重定向
+http-request ^https:\/\/www\.google\.cn\/search\? script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/safari.js, timeout=60, tag=请求修改
 
 [MITM]
 hostname = www.google.cn
