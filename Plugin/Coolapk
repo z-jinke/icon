@@ -1,7 +1,7 @@
-#!name= 酷安
-#!desc= 精简去除广告
-#!author= z-jinke
-#!icon= https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/png/coolapk.png
+#!name = 酷安
+#!desc = 精简去除广告
+#!author = z-jinke
+#!icon = https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/png/coolapk.png
 
 [Script]
 http-response ^https:\/\/api\.coolapk\.com\/v6\/main\/init script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/coolapk.js, requires-body=true, timeout=60, tag=广告与Tab布局处理
