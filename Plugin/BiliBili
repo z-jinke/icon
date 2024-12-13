@@ -8,10 +8,10 @@
 ^https:\/\/(app|api)\.bilibili\.com\/x\/(resource\/ip|vip\/ads) reject-200
 
 [Script]
-http-response ^https:\/\/app\.bilibili\.com\/x\/v2\/splash\/list script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/bilibili.js, requires-body=true, timeout=60, tag=开屏广告处理
-http-response ^https:\/\/app\.bilibili\.com\/x\/v2\/feed\/index script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/bilibili.js, requires-body=true, timeout=60, tag=首页推荐处理
-http-response ^https:\/\/app\.bilibili\.com\/x\/resource\/show\/tab\/v2 script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/bilibili.js, requires-body=true, timeout=60, tag=主页Tab栏处理
-http-response ^https:\/\/app\.bilibili\.com\/x\/v2\/account\/(mine|ipad) script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/bilibili.js, requires-body=true, timeout=60, tag=我的页面处理
+http-response ^https:\/\/app\.bilibili\.com\/x\/v2\/splash\/list script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/bilibili.js, requires-body=true, timeout=60, tag=响应修改
+http-response ^https:\/\/app\.bilibili\.com\/x\/v2\/feed\/index script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/bilibili.js, requires-body=true, timeout=60, tag=响应修改
+http-response ^https:\/\/app\.bilibili\.com\/x\/resource\/show\/tab\/v2 script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/bilibili.js, requires-body=true, timeout=60, tag=响应修改
+http-response ^https:\/\/app\.bilibili\.com\/x\/v2\/account\/(mine|ipad) script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/bilibili.js, requires-body=true, timeout=60, tag=响应修改
 
 [MITM]
 hostname = *.bilibili.com
