@@ -21,7 +21,7 @@ function formatResult(data) {
     };
 
     let res = `<div style="font-family: -apple-system; font-size: large; text-align: left; line-height: 1.8;">
-                <p style="text-align: center; font-size: x-large; font-weight: bold;">节点=${$environment.params.node}</p>
+                <p style="text-align: center; font-size: x-large; font-weight: bold;">节点>${$environment.params.node}</p>
                 <table style="width: 100%; border-collapse: collapse;">`;
     paras.forEach((param, i) => {
         let value = data[param] || "未知";
