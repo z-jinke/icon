@@ -82,6 +82,10 @@
             "url": "https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/png/Swiftgram.png"
         },                                                                                         
         {
+            "name": "CheckNode",
+            "url": "https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/png/CheckNode.png"
+        },                                                                                         
+        {
             "name": "coolapk",
             "url": "https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/png/coolapk.png"
         }
