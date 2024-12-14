@@ -1,4 +1,4 @@
-#!name = Youtube
+#!name = YouTube
 #!desc = 精简去除广告
 #!author = Maasea
 #!icon = https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/png/youtube.png
@@ -7,7 +7,7 @@
 AND,((PROTOCOL,QUIC),(DOMAIN-KEYWORD,google)),REJECT-NO-DROP
 
 [Rewrite]
-^https:\/\/[\w-]+\.googlevideo\.com\/initplayback\?.*?\boad=\d+ reject-200
+^https:\/\/[\w-]+\.googlevideo\.com\/initplayback\?.*?\boad=\d+ mock-request-body data-type=text data="502"
 
 [Script]
 http-response ^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(?:browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch) script-path = https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/dist/youtube.response.preview.js, requires-body =true, binary-body-mode =true, timeout=60, tag =响应修改
