@@ -1,7 +1,7 @@
 #!name = 酷安
 #!desc = 精简去除广告
 #!author = z-jinke
-#!icon = https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/png/coolapk.png
+#!icon = https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/icon/png/Coolapk.png
 
 [Script]
 http-response ^https:\/\/api\.coolapk\.com\/v6\/main\/init script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/coolapk.js, requires-body=true, timeout=60, tag=响应修改
