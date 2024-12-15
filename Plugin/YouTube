@@ -1,7 +1,7 @@
 #!name = YouTube
 #!desc = 精简去除广告
 #!author = Maasea
-#!icon = https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/png/youtube.png
+#!icon = https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/icon/png/YouTube.png
 
 [Rule]
 AND,((PROTOCOL,QUIC),(DOMAIN-KEYWORD,google)),REJECT-NO-DROP
