@@ -88,6 +88,23 @@
         {
             "name": "coolapk",
             "url": "https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/png/coolapk.png"
+        },
+        #国旗                                                                                              
+        {
+            "name": "HK",
+            "url": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png"
+        },                                                                                        
+        {
+            "name": "JP",
+            "url": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png"
+        },                                                                                        
+        {
+            "name": "SG",
+            "url": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png"
+        },                                                                                        
+        {
+            "name": "US",
+            "url": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png"
         }
     ]
 }
