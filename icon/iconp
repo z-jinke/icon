@@ -1,0 +1,9 @@
+{
+    "name": "图标",
+    "icons": [      
+        {
+            "name": "Loon",
+            "url": "https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/png/Loon.png"
+        }
+    ]
+}
