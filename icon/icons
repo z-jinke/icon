@@ -4,7 +4,15 @@
         {
             "name": "Loon",
             "url": "https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/icon/png/Loon.png"
-        },
+        },  
+        {
+            "name": "Telegram",
+            "url": "https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/icon/png/Telegram.png"
+        },  
+        {
+            "name": "Telegram1",
+            "url": "https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/icon/png/Telegram1.png"
+        },  
         {
             "name": "AiQiYi",
             "url": "https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/icon/png/AiQiYi.png"
