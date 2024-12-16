@@ -40,10 +40,14 @@
         {
             "name": "Netflix",
             "url": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netflix.png"
-        }, 
+        },  
         {
             "name": "YouTubeMusic",
             "url": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube_Music.png"
+        },  
+        {
+            "name": "X",
+            "url": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/X.png"
         }
     ]
 }
