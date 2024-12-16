@@ -46,8 +46,16 @@
             "url": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube_Music.png"
         },  
         {
+            "name": "Twitter",
+            "url": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Twitter.png"
+        },  
+        {
             "name": "X",
             "url": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/X.png"
+        },  
+        {
+            "name": "google",
+            "url": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png"
         }
     ]
 }
