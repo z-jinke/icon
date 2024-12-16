@@ -28,10 +28,22 @@
         {
             "name": "youtube",
             "url": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png"
-        },
+        }, 
         {
             "name": "ChatGPT",
             "url": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ChatGPT.png"
+        }, 
+        {
+            "name": "Porxy",
+            "url": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Auto.png"
+        }, 
+        {
+            "name": "Netflix",
+            "url": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netflix.png"
+        }, 
+        {
+            "name": "YouTubeMusic",
+            "url": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube_Music.png"
         }
     ]
 }
