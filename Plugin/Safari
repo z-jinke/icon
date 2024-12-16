@@ -1,7 +1,7 @@
 #!name = Safari
 #!desc = 针对Google重定向
 #!author = z-jinke
-#!icon = https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/icon/png/Safari.png
+#!icon = https://raw.githubusercontent.com/z-jinke/loon/refs/heads/main/icon/png/safari.png
 
 [Script]
 http-request ^https:\/\/www\.google\.cn\/search\? script-path=https://github.com/z-jinke/loon/raw/refs/heads/main/Script/safari.js, timeout=60, tag=请求修改
