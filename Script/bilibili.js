@@ -17,11 +17,12 @@ if (/^https:\/\/app\.bilibili\.com\/x\/v2\/splash\/list/.test(url)) {
 if (/^https:\/\/app\.bilibili\.com\/x\/v2\/feed\/index/.test(url)) {
     let obj = JSON.parse(body);
     if (obj.data) {
-        //obj.data.items = obj.data.items.filter(item => item.goto === "av");
+        obj.data.items = obj.data.items.filter(item => item.goto === "av");
         if (obj.data.config) {
             obj.data.config.column = 1;
             obj.data.config.autoplay_card = 0;
-            obj.data.config.enable_rcmd_guide = false;
+            obj.data.config.history_cache_size = 15;
+            obj.data.config.trigger_loadmore_left_line_num = 2;
         }
     }
     body = JSON.stringify(obj);
