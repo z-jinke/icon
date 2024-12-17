@@ -1,7 +1,6 @@
 let url = $request.url;
 let body = $response.body;
 
-
 if (/^https:\/\/app\.bilibili\.com\/x\/v2\/splash\/list/.test(url)) {
     let obj = JSON.parse(body);
     if (obj.data) {
@@ -19,8 +18,7 @@ if (/^https:\/\/app\.bilibili\.com\/x\/v2\/feed\/index/.test(url)) {
     if (obj.data) {
         obj.data.items = obj.data.items.filter(item => item.goto === "av");
         if (obj.data.config) {
-            obj.data.config.column = 2;
-            obj.data.config.trigger_loadmore_left_line_num = 3;
+            obj.data.config.column = 1;
         }
     }
     body = JSON.stringify(obj);
