@@ -17,10 +17,9 @@ if (/^https:\/\/app\.bilibili\.com\/x\/v2\/splash\/list/.test(url)) {
 if (/^https:\/\/app\.bilibili\.com\/x\/v2\/feed\/index/.test(url)) {
     let obj = JSON.parse(body);
     if (obj.data) {
-        obj.data.items = obj.data.items.filter(item => item.card_goto !== "banner" && item.card_goto !== "ad_av" && item.card_goto !== "live");       
+        obj.data.items = obj.data.items.filter(item => item.card_goto !== "banner" && item.card_goto !== "ad_av" && item.card_goto !== "live" && item.card_type !== "cm_v2");       
         if (obj.data.config) {
             obj.data.config.card_density_exp = 2;
-            obj.data.config.column = 2;
         }
     }
     body = JSON.stringify(obj);
