@@ -17,7 +17,7 @@ if (/^https:\/\/app\.bilibili\.com\/x\/v2\/splash\/list/.test(url)) {
 if (/^https:\/\/app\.bilibili\.com\/x\/v2\/feed\/index/.test(url)) {
     let obj = JSON.parse(body);
     if (obj.data) {
-        obj.data.items = obj.data.items.filter(item => item.card_goto === "av" && item.goto === "av");
+        obj.data.items = obj.data.items.filter(item => item.card_goto !== "banner" && item.card_goto !== "ad_av" && item.card_goto !== "live");
     }
     body = JSON.stringify(obj);
     $done({ body });
