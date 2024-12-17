@@ -20,9 +20,8 @@ if (/^https:\/\/app\.bilibili\.com\/x\/v2\/feed\/index/.test(url)) {
         obj.data.items = obj.data.items.filter(item => item.goto === "av");
         if (obj.data.config) {
             obj.data.config.column = 2;
-            obj.data.config.autoplay_card = 0;
-            obj.data.config.history_cache_size = 15;
-            obj.data.config.trigger_loadmore_left_line_num = 2;
+            obj.data.config.history_cache_size = 20;
+            obj.data.config.trigger_loadmore_left_line_num = 3;
         }
     }
     body = JSON.stringify(obj);
